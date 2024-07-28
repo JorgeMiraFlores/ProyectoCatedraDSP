@@ -15,12 +15,14 @@ namespace farmaciaDonBosco
         public Login()
         {
             InitializeComponent();
+
+            pictureBox1.ImageLocation = @"C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\resources\iconLogin.png";
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox1.ImageLocation = @"C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\resources\iconLogin.jpg";
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+           
         }
     }
 }
