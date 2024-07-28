@@ -1,0 +1,10 @@
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\farmaciaDonBosco.exe.config
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\farmaciaDonBosco.exe
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\farmaciaDonBosco.pdb
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.csproj.AssemblyReference.cache
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Login.resources
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Properties.Resources.resources
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.csproj.GenerateResource.cache
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.csproj.CoreCompileInputs.cache
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.exe
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.pdb
