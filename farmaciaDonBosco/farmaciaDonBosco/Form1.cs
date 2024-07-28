@@ -19,7 +19,7 @@ namespace farmaciaDonBosco
             InitializeComponent();
             
           
-
+            //Picture box con imagen de la farmacia
             pictureBox1.ImageLocation = @"C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\resources\iconLogin.png";
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -31,8 +31,33 @@ namespace farmaciaDonBosco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conexion c = new Conexion();
-            c.establecerConexion();
+            //Declarando el texto de los textbox: usuario y password
+            string user = textBox1.Text;
+            string pasword = textBox2.Text;
+
+            Conexion conexion = new Conexion();
+
+            if (conexion.EvaluarLogin(user, pasword))
+            {
+                MessageBox.Show("Login exitoso");
+                // Aquí puedes redirigir al usuario a la siguiente pantalla de tu aplicación
+            }
+            else
+            {
+                MessageBox.Show("Nombre de usuario o contraseña incorrectos");
+            }
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox2.PasswordChar = '\0';
+            }
+            else {
+                textBox2.PasswordChar = '*';
+            }
 
         }
     }

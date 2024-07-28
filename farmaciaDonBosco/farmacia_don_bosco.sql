@@ -101,5 +101,9 @@ INSERT INTO `farmacia_don_bosco`.`productos` (
 ) VALUES
 (1234567891111, 'Aspirina 500 mg 20 Comprimidos sp.', 1, 1, 1, 10.50, '2025-12-31', 100);
 
+INSERT INTO `farmacia_don_bosco`.`usuarios` (`usuario`, `nombre`, `password`)
+VALUES ('user', 'user', '123');
+
+
 use farmacia_don_bosco;
 select * from productos where idProductos = 1;
