@@ -8,3 +8,10 @@ C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\f
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.csproj.CoreCompileInputs.cache
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.exe
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.pdb
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\MySql.Data.dll
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Memory.dll
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Numerics.Vectors.dll
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Buffers.dll
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\MySql.Data.xml
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmacia.EBF72649.Up2Date

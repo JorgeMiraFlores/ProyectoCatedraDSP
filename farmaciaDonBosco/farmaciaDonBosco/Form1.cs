@@ -18,7 +18,7 @@ namespace farmaciaDonBosco
         {
             InitializeComponent();
             
-            Conexion c = new Conexion();
+          
 
             pictureBox1.ImageLocation = @"C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\resources\iconLogin.png";
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -31,7 +31,8 @@ namespace farmaciaDonBosco
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
+            Conexion c = new Conexion();
+            c.establecerConexion();
 
         }
     }
