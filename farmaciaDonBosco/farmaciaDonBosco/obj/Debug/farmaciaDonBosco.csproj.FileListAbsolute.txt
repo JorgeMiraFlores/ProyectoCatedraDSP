@@ -15,3 +15,4 @@ C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\S
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Buffers.dll
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\MySql.Data.xml
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmacia.EBF72649.Up2Date
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Dashboard.resources
