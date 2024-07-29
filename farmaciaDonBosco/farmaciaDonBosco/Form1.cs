@@ -39,8 +39,16 @@ namespace farmaciaDonBosco
 
             if (conexion.EvaluarLogin(user, pasword))
             {
-                MessageBox.Show("Login exitoso");
-                // Aquí puedes redirigir al usuario a la siguiente pantalla de tu aplicación
+                string usuario = conexion.ObtenerUsuario(user);
+                MessageBox.Show("Login exitoso, bienvenid@ "+usuario);
+
+                
+                Dashboard dashboard = new Dashboard(usuario);
+               
+                dashboard.Show();
+
+                this.Hide();
+
             }
             else
             {

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace farmaciaDonBosco
@@ -55,5 +56,36 @@ namespace farmaciaDonBosco
             }
         }
 
-     }
+        public string ObtenerUsuario(string nombreUsuario)
+        {
+            string user = null;
+
+            try
+            {
+                establecerConexion();
+
+                string query = "SELECT usuario FROM usuarios WHERE usuario = @nombreUsuario;";
+                MySqlCommand cmd = new MySqlCommand(query, cnx);
+                cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    user = reader["usuario"].ToString();
+                }
+
+                reader.Close();
+                cnx.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al evaluar login: " + ex.Message);
+            }
+
+            return user;
+        }
+
+
+    }
 }

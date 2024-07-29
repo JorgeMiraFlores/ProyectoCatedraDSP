@@ -12,9 +12,11 @@ namespace farmaciaDonBosco
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        public Dashboard(string usuario)
         {
             InitializeComponent();
+
+            lblWelcome.Text = "Bienvenid@ "+ usuario;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
