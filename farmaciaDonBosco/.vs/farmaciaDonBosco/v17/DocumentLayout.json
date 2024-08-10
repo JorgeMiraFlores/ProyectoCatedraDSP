@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciadonbosco\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|c:\\repositories\\proyectocatedradsp\\farmaciadonbosco\\farmaciadonbosco\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciadonbosco\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|c:\\repositories\\proyectocatedradsp\\farmaciadonbosco\\farmaciadonbosco\\clases\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\clases\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciadonbosco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|c:\\repositories\\proyectocatedradsp\\farmaciadonbosco\\farmaciadonbosco\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\marcas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|c:\\repositories\\proyectocatedradsp\\farmaciadonbosco\\farmaciadonbosco\\marcas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\marcas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|c:\\repositories\\proyectocatedradsp\\farmaciadonbosco\\farmaciadonbosco\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|c:\\repositories\\proyectocatedradsp\\farmaciadonbosco\\farmaciadonbosco\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76E28C15-5D97-426A-9E56-660A63F21D5E}|farmaciaDonBosco\\farmaciaDonBosco.csproj|solutionrelative:farmaciadonbosco\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Program.cs",
-              "RelativeDocumentMoniker": "farmaciaDonBosco\\Program.cs",
-              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Program.cs",
-              "RelativeToolTip": "farmaciaDonBosco\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAMAAAA",
+              "DocumentIndex": 5,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Login.cs",
+              "RelativeDocumentMoniker": "farmaciaDonBosco\\Login.cs",
+              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Login.cs",
+              "RelativeToolTip": "farmaciaDonBosco\\Login.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T16:17:33.407Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-08-10T16:46:58.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dashboard.cs",
-              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Dashboard.cs",
-              "RelativeDocumentMoniker": "farmaciaDonBosco\\Dashboard.cs",
-              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Dashboard.cs",
-              "RelativeToolTip": "farmaciaDonBosco\\Dashboard.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAAAAAAA",
+              "DocumentIndex": 4,
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Login.cs",
+              "RelativeDocumentMoniker": "farmaciaDonBosco\\Login.cs",
+              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "farmaciaDonBosco\\Login.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T16:22:14.057Z",
+              "WhenOpened": "2024-08-10T16:46:55.923Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Marcas.Designer.cs",
+              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Marcas.Designer.cs",
+              "RelativeDocumentMoniker": "farmaciaDonBosco\\Marcas.Designer.cs",
+              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Marcas.Designer.cs",
+              "RelativeToolTip": "farmaciaDonBosco\\Marcas.Designer.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAcwFoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T16:40:00.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Marcas.cs",
+              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Marcas.cs",
+              "RelativeDocumentMoniker": "farmaciaDonBosco\\Marcas.cs",
+              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Marcas.cs",
+              "RelativeToolTip": "farmaciaDonBosco\\Marcas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T16:35:38.385Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Dashboard.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Dashboard.cs",
-              "RelativeDocumentMoniker": "farmaciaDonBosco\\Dashboard.cs",
-              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Dashboard.cs [Dise\u00F1o]",
-              "RelativeToolTip": "farmaciaDonBosco\\Dashboard.cs [Dise\u00F1o]",
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Clases\\Conexion.cs",
+              "RelativeDocumentMoniker": "farmaciaDonBosco\\Clases\\Conexion.cs",
+              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Clases\\Conexion.cs",
+              "RelativeToolTip": "farmaciaDonBosco\\Clases\\Conexion.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAswFkAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T16:16:32.404Z",
+              "WhenOpened": "2024-08-10T15:58:14.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Marcas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Marcas.cs",
+              "RelativeDocumentMoniker": "farmaciaDonBosco\\Marcas.cs",
+              "ToolTip": "C:\\repositories\\ProyectoCatedraDSP\\farmaciaDonBosco\\farmaciaDonBosco\\Marcas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "farmaciaDonBosco\\Marcas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T15:36:12.234Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

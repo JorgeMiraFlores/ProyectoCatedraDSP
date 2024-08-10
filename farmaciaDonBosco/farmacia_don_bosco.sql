@@ -87,7 +87,7 @@ ENGINE = InnoDB;
 
 
 -- Insertar en la tabla `marcas`
-INSERT INTO `farmacia_don_bosco`.`marcas` (`nombre`) VALUES ('Bayer');
+INSERT INTO `farmacia_don_bosco`.`marcas` (`nombre`) VALUES ('Pfizer'),('Mucinex');
 
 -- Insertar en la tabla `fabricante`
 INSERT INTO `farmacia_don_bosco`.`fabricante` (`nombre`) VALUES ('Fabricante X');

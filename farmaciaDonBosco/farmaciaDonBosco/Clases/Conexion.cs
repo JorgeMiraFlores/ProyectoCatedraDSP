@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -86,6 +87,28 @@ namespace farmaciaDonBosco
             return user;
         }
 
+        public DataTable ObtenerDatos(string tabla)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                establecerConexion();
+
+                string query = $"SELECT * FROM {tabla}";
+                MySqlCommand cmd = new MySqlCommand(query, cnx);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(dt);
+
+                cnx.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message);
+            }
+
+            return dt;
+        }
 
     }
 }

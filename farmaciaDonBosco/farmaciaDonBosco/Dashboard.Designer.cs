@@ -29,78 +29,99 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnMarcasGo = new System.Windows.Forms.Button();
+            this.btnProducGo = new System.Windows.Forms.Button();
+            this.btnTiposGo = new System.Windows.Forms.Button();
+            this.btnFabricGo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnHistGo = new System.Windows.Forms.Button();
+            this.btnFacturaGo = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnMarcasGo);
+            this.groupBox1.Controls.Add(this.btnProducGo);
+            this.groupBox1.Controls.Add(this.btnTiposGo);
+            this.groupBox1.Controls.Add(this.btnFabricGo);
             this.groupBox1.Location = new System.Drawing.Point(34, 86);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(348, 494);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Añadir";
+            this.groupBox1.Text = "Gestión";
             // 
-            // button1
+            // btnMarcasGo
             // 
-            this.button1.Location = new System.Drawing.Point(86, 69);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Añadir marcas";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMarcasGo.Location = new System.Drawing.Point(86, 69);
+            this.btnMarcasGo.Name = "btnMarcasGo";
+            this.btnMarcasGo.Size = new System.Drawing.Size(137, 23);
+            this.btnMarcasGo.TabIndex = 1;
+            this.btnMarcasGo.Text = "Gestor de marcas";
+            this.btnMarcasGo.UseVisualStyleBackColor = true;
+            this.btnMarcasGo.Click += new System.EventHandler(this.btnMarcasGo_Click);
             // 
-            // button4
+            // btnProducGo
             // 
-            this.button4.Location = new System.Drawing.Point(86, 331);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Añadir productos";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnProducGo.Location = new System.Drawing.Point(86, 331);
+            this.btnProducGo.Name = "btnProducGo";
+            this.btnProducGo.Size = new System.Drawing.Size(133, 23);
+            this.btnProducGo.TabIndex = 2;
+            this.btnProducGo.Text = "Gestor de productos";
+            this.btnProducGo.UseVisualStyleBackColor = true;
+            this.btnProducGo.Click += new System.EventHandler(this.btnProducGo_Click);
             // 
-            // button2
+            // btnTiposGo
             // 
-            this.button2.Location = new System.Drawing.Point(86, 245);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Añadir tipos";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTiposGo.Location = new System.Drawing.Point(86, 245);
+            this.btnTiposGo.Name = "btnTiposGo";
+            this.btnTiposGo.Size = new System.Drawing.Size(133, 23);
+            this.btnTiposGo.TabIndex = 2;
+            this.btnTiposGo.Text = "Gestor de tipos";
+            this.btnTiposGo.UseVisualStyleBackColor = true;
+            this.btnTiposGo.Click += new System.EventHandler(this.btnTiposGo_Click);
             // 
-            // button3
+            // btnFabricGo
             // 
-            this.button3.Location = new System.Drawing.Point(86, 156);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Añadir fabricantes";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnFabricGo.Location = new System.Drawing.Point(86, 156);
+            this.btnFabricGo.Name = "btnFabricGo";
+            this.btnFabricGo.Size = new System.Drawing.Size(133, 23);
+            this.btnFabricGo.TabIndex = 3;
+            this.btnFabricGo.Text = "Gestor de fabricantes";
+            this.btnFabricGo.UseVisualStyleBackColor = true;
+            this.btnFabricGo.Click += new System.EventHandler(this.btnFabricGo_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.btnHistGo);
+            this.groupBox2.Controls.Add(this.btnFacturaGo);
             this.groupBox2.Location = new System.Drawing.Point(454, 86);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(505, 494);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Facturas";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // btnHistGo
+            // 
+            this.btnHistGo.Location = new System.Drawing.Point(186, 245);
+            this.btnHistGo.Name = "btnHistGo";
+            this.btnHistGo.Size = new System.Drawing.Size(138, 23);
+            this.btnHistGo.TabIndex = 0;
+            this.btnHistGo.Text = "Ver historial de facturas";
+            this.btnHistGo.UseVisualStyleBackColor = true;
+            // 
+            // btnFacturaGo
+            // 
+            this.btnFacturaGo.Location = new System.Drawing.Point(186, 156);
+            this.btnFacturaGo.Name = "btnFacturaGo";
+            this.btnFacturaGo.Size = new System.Drawing.Size(138, 23);
+            this.btnFacturaGo.TabIndex = 0;
+            this.btnFacturaGo.Text = "Generar facturas";
+            this.btnFacturaGo.UseVisualStyleBackColor = true;
             // 
             // lblWelcome
             // 
@@ -112,24 +133,6 @@
             this.lblWelcome.TabIndex = 5;
             this.lblWelcome.Text = "Bienvenid@";
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(186, 156);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(138, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Generar facturas";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(186, 245);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(138, 23);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Ver historial de facturas";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,7 +142,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -150,13 +155,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMarcasGo;
+        private System.Windows.Forms.Button btnTiposGo;
+        private System.Windows.Forms.Button btnFabricGo;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnProducGo;
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnFacturaGo;
+        private System.Windows.Forms.Button btnHistGo;
     }
 }
