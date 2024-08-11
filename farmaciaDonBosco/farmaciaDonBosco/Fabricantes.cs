@@ -19,7 +19,7 @@ namespace farmaciaDonBosco.FormsGestion
         }
         private void Fabricantes_Load(object sender, EventArgs e)
         {
-
+            CargarDatos();
             //this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
             //this.WindowState = FormWindowState.Maximized;
         }
@@ -34,6 +34,16 @@ namespace farmaciaDonBosco.FormsGestion
             this.Hide();
         }
 
-       
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void CargarDatos()
+        {
+            Conexion conexion = new Conexion();
+            DataTable dt = conexion.ObtenerDatos("fabricante");
+            dataGridView1.DataSource = dt;
+        }
     }
 }

@@ -37,6 +37,7 @@
             this.btnHistGo = new System.Windows.Forms.Button();
             this.btnFacturaGo = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -98,9 +99,9 @@
             // 
             this.groupBox2.Controls.Add(this.btnHistGo);
             this.groupBox2.Controls.Add(this.btnFacturaGo);
-            this.groupBox2.Location = new System.Drawing.Point(454, 86);
+            this.groupBox2.Location = new System.Drawing.Point(428, 86);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(505, 494);
+            this.groupBox2.Size = new System.Drawing.Size(385, 479);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Facturas";
@@ -133,11 +134,21 @@
             this.lblWelcome.TabIndex = 5;
             this.lblWelcome.Text = "Bienvenid@";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(904, 166);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Cerrar Sesión";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1115, 626);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -163,5 +174,6 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnFacturaGo;
         private System.Windows.Forms.Button btnHistGo;
+        private System.Windows.Forms.Button button1;
     }
 }

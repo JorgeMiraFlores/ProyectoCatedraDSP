@@ -90,7 +90,7 @@ ENGINE = InnoDB;
 INSERT INTO `farmacia_don_bosco`.`marcas` (`nombre`) VALUES ('Johnson&Johnson'),('Gsk');
 
 -- Insertar en la tabla `fabricante`
-INSERT INTO `farmacia_don_bosco`.`fabricante` (`nombre`) VALUES ('Fabricante X');
+INSERT INTO `farmacia_don_bosco`.`fabricante` (`nombre`) VALUES ('Bayer');
 
 -- Insertar en la tabla `tipo`
 INSERT INTO `farmacia_don_bosco`.`tipo` (`nombre`) VALUES ('Pastillas');
