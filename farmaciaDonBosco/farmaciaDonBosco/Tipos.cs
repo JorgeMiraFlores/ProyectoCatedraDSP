@@ -30,7 +30,5 @@ namespace farmaciaDonBosco.FormsGestion
 
             this.Hide();
         }
-
-
     }
 }
