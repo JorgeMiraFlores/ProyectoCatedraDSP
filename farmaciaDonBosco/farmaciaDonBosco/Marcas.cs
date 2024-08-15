@@ -21,18 +21,6 @@ namespace farmaciaDonBosco
         {
             CargarDatos();
 
-
-            //this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
-            //this.WindowState = FormWindowState.Maximized;
-        }
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            string name = "";
-            Dashboard dashboard = new Dashboard(name);
-
-            dashboard.Show();
-
-            this.Hide();
         }
 
 
@@ -43,9 +31,14 @@ namespace farmaciaDonBosco
             dataGridView1.DataSource = dt;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnRegresar_Click_1(object sender, EventArgs e)
         {
+            string name = "";
+            Dashboard dashboard = new Dashboard(name);
 
+            dashboard.Show();
+
+            this.Hide();
         }
     }
 }

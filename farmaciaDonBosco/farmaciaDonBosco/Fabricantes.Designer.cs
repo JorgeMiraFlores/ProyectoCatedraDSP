@@ -64,6 +64,7 @@
             this.label2.Size = new System.Drawing.Size(117, 13);
             this.label2.TabIndex = 14;
             this.label2.Text = "Nombre del frabricante:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox2
             // 
@@ -71,6 +72,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(194, 20);
             this.textBox2.TabIndex = 12;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button2
             // 
@@ -80,6 +82,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Agregar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -89,6 +92,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Fabricantes
             // 

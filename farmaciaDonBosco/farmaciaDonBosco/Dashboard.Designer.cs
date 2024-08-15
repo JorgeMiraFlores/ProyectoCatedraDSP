@@ -108,7 +108,7 @@
             // 
             // btnHistGo
             // 
-            this.btnHistGo.Location = new System.Drawing.Point(186, 245);
+            this.btnHistGo.Location = new System.Drawing.Point(129, 245);
             this.btnHistGo.Name = "btnHistGo";
             this.btnHistGo.Size = new System.Drawing.Size(138, 23);
             this.btnHistGo.TabIndex = 0;
@@ -117,7 +117,7 @@
             // 
             // btnFacturaGo
             // 
-            this.btnFacturaGo.Location = new System.Drawing.Point(186, 156);
+            this.btnFacturaGo.Location = new System.Drawing.Point(129, 156);
             this.btnFacturaGo.Name = "btnFacturaGo";
             this.btnFacturaGo.Size = new System.Drawing.Size(138, 23);
             this.btnFacturaGo.TabIndex = 0;
@@ -142,6 +142,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Cerrar Sesión";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Dashboard
             // 

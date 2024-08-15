@@ -45,5 +45,25 @@ namespace farmaciaDonBosco.FormsGestion
             DataTable dt = conexion.ObtenerDatos("fabricante");
             dataGridView1.DataSource = dt;
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

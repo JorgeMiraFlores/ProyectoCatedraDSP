@@ -5,8 +5,6 @@
 DROP SCHEMA IF EXISTS `farmacia_don_bosco` ;
 CREATE SCHEMA IF NOT EXISTS `farmacia_don_bosco` DEFAULT CHARACTER SET utf8 ;
 
-
-
 -- -----------------------------------------------------
 -- Table `farmacia_don_bosco`.`usuarios`
 -- -----------------------------------------------------
@@ -37,7 +35,7 @@ ENGINE = InnoDB;
 -- Table `farmacia_don_bosco`.`fabricante`
 -- -----------------------------------------------------
 
-DROP TABLE IF EXISTS `farmacia_don_bosco`.`fabricante`;
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`fabricantes`;
 CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`fabricante` (
 	`idFabricante` INT NOT NULL AUTO_INCREMENT,
     `nombre` VARCHAR(200) NOT NULL,
@@ -66,7 +64,6 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `farmacia_don_bosco`.`productos` ;
 CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`productos` (
 	`idProductos` INT NOT NULL AUTO_INCREMENT,
-	`codigo-ean13` BIGINT NOT NULL,
 	`nombre` VARCHAR(200) NOT NULL,
     `idMarca` INT(5) NOT NULL,		-- "farmacia_don_bosco.marcas"
 	`idFabricante` INT(5) NOT NULL,		-- "farmacia_don_bosco.fabricantes"
@@ -97,9 +94,9 @@ INSERT INTO `farmacia_don_bosco`.`tipo` (`nombre`) VALUES ('Pastillas');
 
 -- Insertar en la tabla `productos`
 INSERT INTO `farmacia_don_bosco`.`productos` (
-    `codigo-ean13`, `nombre`, `idMarca`, `idFabricante`, `idTipo`, `precio`, `caducidad`, `stock`
+    `nombre`, `idMarca`, `idFabricante`, `idTipo`, `precio`, `caducidad`, `stock`
 ) VALUES
-(1234567891111, 'Aspirina 500 mg 20 Comprimidos sp.', 1, 1, 1, 10.50, '2025-12-31', 100);
+('Aspirina 500 mg 20 Comprimidos sp.', 1, 1, 1, 10.50, '2025-12-31', 100);
 
 INSERT INTO `farmacia_don_bosco`.`usuarios` (`usuario`, `nombre`, `password`)
 VALUES ('user', 'user', '123');
