@@ -30,7 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxNombre = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -48,9 +48,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnRecargar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRecargar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -75,20 +77,24 @@
             this.txtBoxNombre.Size = new System.Drawing.Size(664, 20);
             this.txtBoxNombre.TabIndex = 19;
             // 
-            // button2
+            // btnAgregar
             // 
-            this.button2.Location = new System.Drawing.Point(453, 463);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 28);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Agregar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(453, 463);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(109, 28);
+            this.btnAgregar.TabIndex = 18;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(28, 68);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -130,9 +136,11 @@
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.txtBoxID);
             this.tabPage1.Controls.Add(this.txtBoxNombre);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.btnAgregar);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -267,6 +275,16 @@
             this.tabPage2.Text = "Ver productos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnRecargar
+            // 
+            this.btnRecargar.Location = new System.Drawing.Point(400, 477);
+            this.btnRecargar.Name = "btnRecargar";
+            this.btnRecargar.Size = new System.Drawing.Size(75, 23);
+            this.btnRecargar.TabIndex = 19;
+            this.btnRecargar.Text = "Recargar";
+            this.btnRecargar.UseVisualStyleBackColor = true;
+            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(543, 477);
@@ -286,15 +304,24 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Lista de productos:";
             // 
-            // btnRecargar
+            // label9
             // 
-            this.btnRecargar.Location = new System.Drawing.Point(400, 477);
-            this.btnRecargar.Name = "btnRecargar";
-            this.btnRecargar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecargar.TabIndex = 19;
-            this.btnRecargar.Text = "Recargar";
-            this.btnRecargar.UseVisualStyleBackColor = true;
-            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "ID producto:";
+            this.label9.Visible = false;
+            // 
+            // txtBoxID
+            // 
+            this.txtBoxID.Location = new System.Drawing.Point(41, 60);
+            this.txtBoxID.Name = "txtBoxID";
+            this.txtBoxID.ReadOnly = true;
+            this.txtBoxID.Size = new System.Drawing.Size(79, 20);
+            this.txtBoxID.TabIndex = 19;
+            this.txtBoxID.Visible = false;
             // 
             // Productos
             // 
@@ -321,7 +348,7 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxNombre;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.TabControl tabControl1;
@@ -342,5 +369,7 @@
         private System.Windows.Forms.DateTimePicker datePickCaducidad;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnRecargar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtBoxID;
     }
 }

@@ -300,5 +300,46 @@ namespace farmaciaDonBosco
             }
         }
 
+        public void ActualizarProductos(int idProductos, string nombre, int marca, int fabricante, int tipo, decimal precio, string fechaCaducidad, decimal stock)
+        {
+            try
+            {
+                establecerConexion();
+                string query = "UPDATE productos " +
+                               "SET nombre = @nombre, idMarca = @idMarca, idFabricante = @idFabricante, idTipo = @idTipo, " +
+                               "precio = @precio, caducidad = @fechaCaducidad, stock = @stock " +
+                               "WHERE idProductos = @idProductos";
+
+                using (MySqlCommand comando = new MySqlCommand(query, cnx))
+                {
+                    comando.Parameters.AddWithValue("@nombre", nombre);
+                    comando.Parameters.AddWithValue("@idMarca", marca);
+                    comando.Parameters.AddWithValue("@idFabricante", fabricante);
+                    comando.Parameters.AddWithValue("@idTipo", tipo);
+                    comando.Parameters.AddWithValue("@precio", precio);
+                    comando.Parameters.AddWithValue("@fechaCaducidad", fechaCaducidad);
+                    comando.Parameters.AddWithValue("@stock", stock);
+                    comando.Parameters.AddWithValue("@idProductos", idProductos);
+
+                    // Usa ExecuteNonQuery para operaciones de inserción
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas > 0)
+                    {
+                        MessageBox.Show("Producto actualizado correctamente.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar producto: " + ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
     }
 }
