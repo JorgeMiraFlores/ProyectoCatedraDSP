@@ -81,5 +81,12 @@ namespace farmaciaDonBosco
 
             this.Hide();
         }
+
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Detiene la aplicación
+            Application.Exit();
+        }
     }
 }

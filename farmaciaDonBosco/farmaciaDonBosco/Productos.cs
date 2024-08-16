@@ -265,5 +265,12 @@ namespace farmaciaDonBosco.FormsGestion
             label9.Visible = true;
             txtBoxID.Visible = true;
         }
+
+        private void Formulario1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Detiene la aplicación
+            Application.Exit();
+        }
     }
 }
+
