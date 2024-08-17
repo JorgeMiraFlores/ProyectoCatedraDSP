@@ -261,6 +261,7 @@ namespace farmaciaDonBosco
             return idTipo;
         }
 
+        //Agregar funciones
         public void AgregarProducto(string nombre, int marca, int fabricante, int tipo, decimal precio, string fechaCaducidad, decimal stock)
         {
             try
@@ -299,7 +300,38 @@ namespace farmaciaDonBosco
                 }
             }
         }
+        public void AgregarTipos(string nombreTipo)
+        {
+            try
+            {
+                establecerConexion();
 
+                string query = "INSERT INTO tipo (nombre) " +
+                               "VALUES (@nombre)";
+                using (MySqlCommand comando = new MySqlCommand(query, cnx))
+                {
+                    comando.Parameters.AddWithValue("@nombre", nombreTipo);
+
+                    // Usa ExecuteNonQuery para operaciones de inserción
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas > 0)
+                    {
+                        MessageBox.Show("Tipo de producto agregado correctamente.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ingresar el nuevo tipo del producto: " + ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
         public void ActualizarProductos(int idProductos, string nombre, int marca, int fabricante, int tipo, decimal precio, string fechaCaducidad, decimal stock)
         {
             try

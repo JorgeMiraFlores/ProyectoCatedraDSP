@@ -16,7 +16,6 @@ namespace farmaciaDonBosco.FormsGestion
     public partial class Productos : Form
     {
         Conexion conexion = new Conexion();
-        private bool isLoadingData = false;
         public Productos()
         {
             InitializeComponent();
@@ -28,12 +27,11 @@ namespace farmaciaDonBosco.FormsGestion
         {
             //this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
             //this.WindowState = FormWindowState.Maximized;
-
+            CargarDatos();
             datePickCaducidad.Format = DateTimePickerFormat.Custom; // Establece el formato personalizado
             datePickCaducidad.CustomFormat = "dd/MM/yyyy";
 
             dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
-
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -165,23 +163,6 @@ namespace farmaciaDonBosco.FormsGestion
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (!isLoadingData)
-            {
-                return;
-            }
-
-            DialogResult result = MessageBox.Show("¿Deseas eliminar el producto? Si no, se actualizará.", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-
-            if (result == DialogResult.Yes)
-            {
-
-            }
-            else if (result == DialogResult.No)
-            {
-
-
-            }
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -198,20 +179,20 @@ namespace farmaciaDonBosco.FormsGestion
                 numStock.Value = Convert.ToDecimal(filaSeleccionada.Cells["stock"].Value);
                 datePickCaducidad.Value = Convert.ToDateTime(filaSeleccionada.Cells["caducidad"].Value);
 
+                string productoSeleccionado = filaSeleccionada.Cells["NombreProducto"].Value.ToString();
+
                 btnAgregar.Text = "Actualizar";
 
                 mostrarId();
 
                 tabPage1.Text = "Actualizar productos";
-                tabControl1.SelectedIndex = 0;
+                MessageBox.Show("Datos de producto " + productoSeleccionado + " añadidos a la pestaña de actualizar, listos para ser actualizados.", "Producto Listo para Actualizar");
             }
         }
             private void CargarDatos()
         {
             try
             {
-                isLoadingData = false;
-
                 DataTable dt = conexion.ObtenerProductos();
                 dataGridView1.DataSource = dt;
 
@@ -240,7 +221,7 @@ namespace farmaciaDonBosco.FormsGestion
             }
             finally
             {
-                isLoadingData = true;
+
             }
         }
         private void VaciarGrillas()
@@ -271,6 +252,44 @@ namespace farmaciaDonBosco.FormsGestion
             // Detiene la aplicación
             Application.Exit();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            if (ComprobarGrillasLlenas() && txtBoxID.Visible == false)
+            {
+                VaciarGrillas();
+                MessageBox.Show("Los campos de texto de insersión han sido vaciados");
+            }
+            else if (ComprobarGrillasLlenas() && txtBoxID.Visible == true)
+            {
+                VaciarGrillas();
+                MessageBox.Show("Los campos de texto de actualización han sido vaciados");
+                txtBoxID.Visible = false;
+                label9.Visible = false;
+            }
+            else if (!ComprobarGrillasLlenas() || txtBoxID.Visible == false || datePickCaducidad.Value == DateTime.Now.Date) {
+                MessageBox.Show("Los campos de texto ya están vacios");
+
+            }
+        }
+
+        private bool ComprobarGrillasLlenas()
+        {
+            if (!string.IsNullOrWhiteSpace(txtBoxID.Text) ||
+                !string.IsNullOrWhiteSpace(txtBoxNombre.Text) ||
+                cBoxMarcas.SelectedIndex != -1 ||
+                cBoxFabricantes.SelectedIndex != -1 ||
+                cBoxTipos.SelectedIndex != -1 ||
+                numPrecio.Value > 0 ||
+                numStock.Value > 0 ||
+                datePickCaducidad.Value.Date != DateTime.Now.Date)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
 

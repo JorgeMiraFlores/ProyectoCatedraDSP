@@ -12,6 +12,7 @@ namespace farmaciaDonBosco
 {
     public partial class Tipos : Form
     {
+        Conexion conexion = new Conexion();
         public Tipos()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace farmaciaDonBosco
         private void CargarDatos()
         {
             Conexion conexion = new Conexion();
-            DataTable dt = conexion.ObtenerDatos("fabricante");
+            DataTable dt = conexion.ObtenerDatos("tipo");
             dataGridView1.DataSource = dt;
         }
 
@@ -37,6 +38,21 @@ namespace farmaciaDonBosco
             dashboard.Show();
 
             this.Hide();
+        }
+
+        private void btnAgregarTipo_Click(object sender, EventArgs e)
+        {
+            if (txtBoxTipoNombre.Text.Length > 0)
+            {
+                string nombreTipo = txtBoxTipoNombre.Text;
+                conexion.AgregarTipos(nombreTipo);
+
+            }
+            else
+            {
+                MessageBox.Show("Ingrese el nombre la nueva marca");
+                return;
+            }
         }
     }
 }

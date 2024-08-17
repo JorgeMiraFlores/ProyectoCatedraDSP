@@ -47,12 +47,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxID = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnRecargar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtBoxID = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,7 +80,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(453, 463);
+            this.btnAgregar.Location = new System.Drawing.Point(357, 462);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 28);
             this.btnAgregar.TabIndex = 18;
@@ -124,6 +125,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnLimpiar);
             this.tabPage1.Controls.Add(this.datePickCaducidad);
             this.tabPage1.Controls.Add(this.numStock);
             this.tabPage1.Controls.Add(this.numPrecio);
@@ -261,6 +263,25 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Marca:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "ID producto:";
+            this.label9.Visible = false;
+            // 
+            // txtBoxID
+            // 
+            this.txtBoxID.Location = new System.Drawing.Point(41, 60);
+            this.txtBoxID.Name = "txtBoxID";
+            this.txtBoxID.ReadOnly = true;
+            this.txtBoxID.Size = new System.Drawing.Size(79, 20);
+            this.txtBoxID.TabIndex = 19;
+            this.txtBoxID.Visible = false;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnRecargar);
@@ -304,24 +325,15 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Lista de productos:";
             // 
-            // label9
+            // btnLimpiar
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(38, 35);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "ID producto:";
-            this.label9.Visible = false;
-            // 
-            // txtBoxID
-            // 
-            this.txtBoxID.Location = new System.Drawing.Point(41, 60);
-            this.txtBoxID.Name = "txtBoxID";
-            this.txtBoxID.ReadOnly = true;
-            this.txtBoxID.Size = new System.Drawing.Size(79, 20);
-            this.txtBoxID.TabIndex = 19;
-            this.txtBoxID.Visible = false;
+            this.btnLimpiar.Location = new System.Drawing.Point(558, 463);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(109, 27);
+            this.btnLimpiar.TabIndex = 24;
+            this.btnLimpiar.Text = "Limpiar campos";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // Productos
             // 
@@ -371,5 +383,6 @@
         private System.Windows.Forms.Button btnRecargar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtBoxID;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
