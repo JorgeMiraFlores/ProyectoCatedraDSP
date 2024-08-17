@@ -47,6 +47,8 @@ namespace farmaciaDonBosco
                 string nombreTipo = txtBoxTipoNombre.Text;
                 conexion.AgregarTipos(nombreTipo);
 
+                CargarDatos();
+
             }
             else
             {
