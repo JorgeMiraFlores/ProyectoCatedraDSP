@@ -58,7 +58,7 @@ namespace farmaciaDonBosco.FormsGestion
                 if (result == DialogResult.Yes)
                 {
 
-                    bool exito = conexion.EliminarProducto(idProducto);
+                    bool exito = conexion.EliminarObjeto(idProducto, "productos", "idProductos");
 
                     if (exito)
                     {

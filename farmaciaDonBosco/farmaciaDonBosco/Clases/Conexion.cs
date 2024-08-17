@@ -136,7 +136,8 @@ namespace farmaciaDonBosco
 
             return dt;
         }
-        public bool EliminarProducto(int idProducto)
+
+        public bool EliminarObjeto(int id, string tabla, string columna)
         {
             bool resultado = false;
 
@@ -144,9 +145,9 @@ namespace farmaciaDonBosco
             {
                 establecerConexion();
 
-                string query = "DELETE FROM productos WHERE idProductos = @idProductos";
+                string query = $"DELETE FROM {tabla} WHERE {columna} = @idObjeto";
                 MySqlCommand cmd = new MySqlCommand(query, cnx);
-                cmd.Parameters.AddWithValue("@idProductos", idProducto);
+                cmd.Parameters.AddWithValue("@idObjeto", id);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
 
@@ -157,7 +158,7 @@ namespace farmaciaDonBosco
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el producto: " + ex.Message);
+                MessageBox.Show("Error al eliminar: " + ex.Message);
             }
             finally
             {
@@ -166,6 +167,7 @@ namespace farmaciaDonBosco
 
             return resultado;
         }
+
         public int ObtenerIdMarca(string nombreMarca)
         {
             int idMarca = -1; // Valor por defecto si no se encuentra la marca
