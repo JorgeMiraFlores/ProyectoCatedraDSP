@@ -462,6 +462,81 @@ namespace farmaciaDonBosco
             return precio;
         }
 
+        public int InsertarFactura(DateTime fechaFactura, string nombreCliente, int tipoPago, decimal descuento, decimal subtotal, decimal total)
+        {
+            int idFactura = 0;
+            try
+            {
+                establecerConexion();
+
+                string queryFactura = "INSERT INTO factura (fecha, cliente, idFormaPago, descuento, subtotal, total) " +
+                                      "VALUES (@fecha, @cliente, @idFormaPago, @descuento,@subtotal, @total); " +
+                                      "SELECT LAST_INSERT_ID();";
+
+                using (MySqlCommand cmd = new MySqlCommand(queryFactura, cnx))
+                {
+                    cmd.Parameters.AddWithValue("@fecha", fechaFactura);
+                    cmd.Parameters.AddWithValue("@cliente", nombreCliente);
+                    cmd.Parameters.AddWithValue("@idFormaPago", tipoPago);
+                    cmd.Parameters.AddWithValue("@descuento", descuento);
+                    cmd.Parameters.AddWithValue("@subtotal", subtotal);
+                    cmd.Parameters.AddWithValue("@total", total);
+
+                    // Ejecutar la consulta y obtener el ID de la factura recién insertada
+                    idFactura = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar la factura: " + ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+
+            return idFactura;
+        }
+        public void InsertarDetallesFactura(int idFactura, DataGridView dGVProductos)
+        {
+            try
+            {
+                establecerConexion();
+
+                string queryDetalle = "INSERT INTO detalle_factura (idFactura, idProducto, cantidad, precio_unitario, subtotal) " +
+                                      "VALUES (@idFactura, @idProducto, @cantidad, @precio_unitario, @subtotal);";
+
+                foreach (DataGridViewRow row in dGVProductos.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    using (MySqlCommand cmd = new MySqlCommand(queryDetalle, cnx))
+                    {
+                        cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                        cmd.Parameters.AddWithValue("@idProducto", Convert.ToInt32(row.Cells["idProducto"].Value));
+                        cmd.Parameters.AddWithValue("@cantidad", Convert.ToInt32(row.Cells["cantidad"].Value));
+                        cmd.Parameters.AddWithValue("@precio_unitario", Convert.ToDecimal(row.Cells["precio"].Value));
+                        cmd.Parameters.AddWithValue("@subtotal", Convert.ToDecimal(row.Cells["subtotal"].Value));
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar los detalles de la factura: " + ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
 
 
     }

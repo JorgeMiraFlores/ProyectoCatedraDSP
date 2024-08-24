@@ -38,57 +38,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `farmacia_don_bosco`.`formas_pago`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `farmacia_don_bosco`.`formas_pago`;
-CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`formas_pago` (
-    `idFormaPago` INT NOT NULL AUTO_INCREMENT,
-    `nombre` VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`idFormaPago`)
-)
-ENGINE = InnoDB;
-
--- Insertar en la tabla `formas_pago`
-INSERT INTO `farmacia_don_bosco`.`formas_pago` (`nombre`)
-VALUES ('Efectivo'), ('Tarjeta');
-
--- -----------------------------------------------------
--- Table `farmacia_don_bosco`.`usuarios`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `farmacia_don_bosco`.`factura`;
-CREATE TABLE IF NOT EXISTS `factura` (
-    `idFactura` INT NOT NULL AUTO_INCREMENT,
-    `fecha` DATETIME NOT NULL,
-    `cliente` VARCHAR(200) NOT NULL,
-	`idFormaPago` INT NOT NULL,
-    `descuento` FLOAT(3,2) DEFAULT 0,
-    
-    PRIMARY KEY (`idFactura`),
-	FOREIGN KEY (`idFormaPago`) REFERENCES `formas_pago`(`idFormaPago`)
-) ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `farmacia_don_bosco`.`detalle_factura`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `farmacia_don_bosco`.`detalle_factura`;
-CREATE TABLE IF NOT EXISTS `detalle_factura` (
-    `idDetalle` INT NOT NULL AUTO_INCREMENT,
-    `idFactura` INT NOT NULL,
-    `idProducto` INT NOT NULL,
-    `cantidad` INT NOT NULL,
-    `precio_unitario` FLOAT(6,2) NOT NULL,
-    `subtotal` FLOAT(6,2) NOT NULL,
-
-    PRIMARY KEY (`idDetalle`),
-    
-    FOREIGN KEY (`idFactura`) REFERENCES `factura`(`idFactura`) ON DELETE CASCADE,
-    FOREIGN KEY (`idProducto`) REFERENCES `productos`(`idProductos`) ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-
-
-
--- -----------------------------------------------------
 -- Table `farmacia_don_bosco`.`marcas`
 -- -----------------------------------------------------
 
@@ -151,6 +100,59 @@ CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`productos` (
 	FOREIGN KEY (`idTipo`) REFERENCES `farmacia_don_bosco`.`tipo` (`idTipo`)
 )
 ENGINE = InnoDB;
+
+- -----------------------------------------------------
+-- Table `farmacia_don_bosco`.`formas_pago`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`formas_pago`;
+CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`formas_pago` (
+    `idFormaPago` INT NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`idFormaPago`)
+)
+ENGINE = InnoDB;
+
+-- Insertar en la tabla `formas_pago`
+INSERT INTO `farmacia_don_bosco`.`formas_pago` (`nombre`)
+VALUES ('Efectivo'), ('Tarjeta');
+
+
+-----------------------------------------------
+-- Table `farmacia_don_bosco`.`factura`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`factura`;
+CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`factura` (
+    `idFactura` INT NOT NULL AUTO_INCREMENT,
+    `fecha` DATETIME NOT NULL,
+    `cliente` VARCHAR(200) NOT NULL,
+	`idFormaPago` INT NOT NULL,
+    `descuento` INT DEFAULT 0,
+	`subtotal` FLOAT(6,2) NOT NULL,
+	`total` FLOAT(6,2) NOT NULL,
+    
+    PRIMARY KEY (`idFactura`),
+	FOREIGN KEY (`idFormaPago`) REFERENCES `formas_pago`(`idFormaPago`)
+) ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `farmacia_don_bosco`.`detalle_factura`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`detalle_factura`;
+CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`detalle_factura` (
+    `idDetalle` INT NOT NULL AUTO_INCREMENT,
+    `idFactura` INT NOT NULL,
+    `idProducto` INT NOT NULL,
+    `cantidad` INT NOT NULL,
+    `precio_unitario` FLOAT(6,2) NOT NULL,
+    `subtotal` FLOAT(6,2) NOT NULL,
+
+    PRIMARY KEY (`idDetalle`),
+    
+    FOREIGN KEY (`idFactura`) REFERENCES `factura`(`idFactura`) ON DELETE CASCADE,
+    FOREIGN KEY (`idProducto`) REFERENCES `productos`(`idProductos`) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
 
 
 -- Insertar en la tabla `marcas`
