@@ -504,24 +504,25 @@ namespace farmaciaDonBosco
         {
             try
             {
-                establecerConexion();
-
-                string queryDetalle = "INSERT INTO detalle_factura (idFactura, idProducto, cantidad, precio_unitario, subtotal) " +
-                                      "VALUES (@idFactura, @idProducto, @cantidad, @precio_unitario, @subtotal);";
-
-                foreach (DataGridViewRow row in dGVProductos.Rows)
+                using (MySqlConnection cnx = establecerConexion())
                 {
-                    if (row.IsNewRow) continue;
+                    string queryDetalle = "INSERT INTO detalle_factura (idFactura, idProducto, cantidad, precio_unitario, subtotal) " +
+                                          "VALUES (@idFactura, @idProducto, @cantidad, @precio_unitario, @subtotal);";
 
-                    using (MySqlCommand cmd = new MySqlCommand(queryDetalle, cnx))
+                    foreach (DataGridViewRow row in dGVProductos.Rows)
                     {
-                        cmd.Parameters.AddWithValue("@idFactura", idFactura);
-                        cmd.Parameters.AddWithValue("@idProducto", Convert.ToInt32(row.Cells["idProducto"].Value));
-                        cmd.Parameters.AddWithValue("@cantidad", Convert.ToInt32(row.Cells["cantidad"].Value));
-                        cmd.Parameters.AddWithValue("@precio_unitario", Convert.ToDecimal(row.Cells["precio"].Value));
-                        cmd.Parameters.AddWithValue("@subtotal", Convert.ToDecimal(row.Cells["subtotal"].Value));
+                        if (row.IsNewRow) continue;
 
-                        cmd.ExecuteNonQuery();
+                        using (MySqlCommand cmd = new MySqlCommand(queryDetalle, cnx))
+                        {
+                            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                            cmd.Parameters.AddWithValue("@idProducto", Convert.ToInt32(row.Cells["idProducto"].Value));
+                            cmd.Parameters.AddWithValue("@cantidad", Convert.ToInt32(row.Cells["Cantidad"].Value));
+                            cmd.Parameters.AddWithValue("@precio_unitario", Convert.ToDecimal(row.Cells["PrecioUnitario"].Value));
+                            cmd.Parameters.AddWithValue("@subtotal", Convert.ToDecimal(row.Cells["Subtotal"].Value));
+
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
             }
@@ -529,14 +530,85 @@ namespace farmaciaDonBosco
             {
                 MessageBox.Show("Error al insertar los detalles de la factura: " + ex.Message);
             }
-            finally
-            {
-                if (cnx.State == ConnectionState.Open)
-                {
-                    cnx.Close();
-                }
-            }
         }
+
+        public DataTable ObtenerDetallesFactura(int idFactura)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                establecerConexion();
+
+                string query = @"
+            SELECT 
+
+                p.nombre AS NombreProducto,
+                df.cantidad,
+                df.precio_unitario,
+                df.subtotal
+            FROM 
+                detalle_factura df
+            JOIN 
+                productos p ON df.idProducto = p.idProductos
+            WHERE 
+                df.idFactura = @idFactura;";  // Parámetro para la consulta
+
+                using (MySqlCommand cmd = new MySqlCommand(query, cnx))
+                {
+                    cmd.Parameters.AddWithValue("@idFactura", idFactura);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+
+                cnx.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message);
+            }
+
+            return dt;
+        }
+
+        public DataTable ObtenerFacturas()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                establecerConexion();
+
+                string query = @"
+            SELECT 
+                f.idFactura,
+                f.fecha,
+                f.cliente,
+                fp.nombre AS FormaPago,
+                f.descuento,
+                f.subtotal,
+                f.total
+            FROM 
+                factura f
+            JOIN 
+                formas_pago fp ON f.idFormaPago = fp.idFormaPago;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, cnx))
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+
+                cnx.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message);
+            }
+
+            return dt;
+        }
+
 
 
     }

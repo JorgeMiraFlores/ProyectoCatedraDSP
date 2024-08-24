@@ -47,10 +47,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(217)))), ((int)(((byte)(205)))));
             this.groupBox1.Controls.Add(this.btnMarcasGo);
             this.groupBox1.Controls.Add(this.btnProducGo);
             this.groupBox1.Controls.Add(this.btnTiposGo);
             this.groupBox1.Controls.Add(this.btnFabricGo);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(34, 86);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(310, 494);
@@ -100,8 +102,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(217)))), ((int)(((byte)(205)))));
             this.groupBox2.Controls.Add(this.btnHistGo);
             this.groupBox2.Controls.Add(this.btnFacturaGo);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(382, 86);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(343, 479);
@@ -117,6 +121,7 @@
             this.btnHistGo.TabIndex = 0;
             this.btnHistGo.Text = "Ver historial de facturas";
             this.btnHistGo.UseVisualStyleBackColor = true;
+            this.btnHistGo.Click += new System.EventHandler(this.btnHistGo_Click);
             // 
             // btnFacturaGo
             // 
@@ -132,7 +137,7 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft JhengHei", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(12, 9);
+            this.lblWelcome.Location = new System.Drawing.Point(29, 29);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(141, 28);
             this.lblWelcome.TabIndex = 5;
@@ -140,9 +145,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(464, 591);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(467, 571);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 23);
+            this.button1.Size = new System.Drawing.Size(138, 28);
             this.button1.TabIndex = 1;
             this.button1.Text = "Cerrar Sesión";
             this.button1.UseVisualStyleBackColor = true;
@@ -150,7 +156,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(217)))), ((int)(((byte)(205)))));
             this.groupBox3.Controls.Add(this.btnUsuariosForm);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(744, 86);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(348, 479);
@@ -172,6 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(217)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1115, 626);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);

@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`productos` (
 )
 ENGINE = InnoDB;
 
-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Table `farmacia_don_bosco`.`formas_pago`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `farmacia_don_bosco`.`formas_pago`;
@@ -117,7 +117,7 @@ INSERT INTO `farmacia_don_bosco`.`formas_pago` (`nombre`)
 VALUES ('Efectivo'), ('Tarjeta');
 
 
------------------------------------------------
+-- ---------------------------------------------
 -- Table `farmacia_don_bosco`.`factura`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `farmacia_don_bosco`.`factura`;

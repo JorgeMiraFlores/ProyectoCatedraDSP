@@ -109,5 +109,15 @@ namespace farmaciaDonBosco
 
             this.Hide();
         }
+
+        private void btnHistGo_Click(object sender, EventArgs e)
+        {
+            string name = "";
+            HistorialFactura HistorialFactura = new HistorialFactura();
+
+            HistorialFactura.Show();
+
+            this.Hide();
+        }
     }
 }

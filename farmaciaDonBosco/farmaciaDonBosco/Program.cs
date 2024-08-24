@@ -18,7 +18,7 @@ namespace farmaciaDonBosco
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GenerarFactura());
+            Application.Run(new Dashboard("xd"));
             //Application.Run(new Login());
             //Application.Run(new Dashboard());
         }

@@ -144,6 +144,12 @@
     <Compile Include="GenerarFactura.Designer.cs">
       <DependentUpon>GenerarFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="HistorialFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialFactura.Designer.cs">
+      <DependentUpon>HistorialFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GenerarFactura.resx">
       <DependentUpon>GenerarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialFactura.resx">
+      <DependentUpon>HistorialFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

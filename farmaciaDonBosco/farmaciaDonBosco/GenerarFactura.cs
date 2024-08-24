@@ -36,6 +36,7 @@ namespace farmaciaDonBosco
             // Configurar las columnas del DataGridView si aún no están configuradas
             if (dGVProductos.Columns.Count == 0)
             {
+                dGVProductos.Columns.Add("idProducto", "idProducto");
                 dGVProductos.Columns.Add("Producto", "Producto");
                 dGVProductos.Columns.Add("Cantidad", "Cantidad");
                 dGVProductos.Columns.Add("PrecioUnitario", "Precio Unitario");
@@ -68,6 +69,7 @@ namespace farmaciaDonBosco
             if (cBoxProductos.SelectedItem != null)
             {
                 string productoSeleccionado = cBoxProductos.SelectedItem.ToString();
+                int idProducto = conexion.ObtenerIdObjeto(productoSeleccionado, "idProductos", "productos");
                 decimal precioUnitario = conexion.ObtenerPrecioProducto(productoSeleccionado);
 
                 if (precioUnitario > 0)
@@ -94,7 +96,8 @@ namespace farmaciaDonBosco
                     if (!productoEncontrado)
                     {
                         decimal subtotal = cantidad * precioUnitario;
-                        dGVProductos.Rows.Add(productoSeleccionado, cantidad, precioUnitario, subtotal);
+                        // Añadir idProducto en la columna correspondiente
+                        dGVProductos.Rows.Add(idProducto, productoSeleccionado, cantidad, precioUnitario, subtotal);
                     }
 
                     // Actualiza el total después de añadir o actualizar un producto
@@ -110,6 +113,7 @@ namespace farmaciaDonBosco
                 MessageBox.Show("Selecciona un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void ActualizarTotal()
         {
             decimal total = 0;
@@ -138,32 +142,31 @@ namespace farmaciaDonBosco
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            if (txtBoxNombre.Text.Length > 0) { }
-            else
+            if (txtBoxNombre.Text.Length == 0)
             {
                 MessageBox.Show("Por favor, añada el nombre del cliente a la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (dateFactura.Text.Length > 0) { }
-            else
+
+            if (dateFactura.Text.Length == 0)
             {
-                MessageBox.Show("Por favor, añada una fecha la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, añada una fecha para la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (radioBtnEfectivo.Checked || radioBtnTarjeta.Checked) { }
-            else
+
+            if (!radioBtnEfectivo.Checked && !radioBtnTarjeta.Checked)
             {
                 MessageBox.Show("Por favor, seleccione un método de pago.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (numDescuento.Text.Length > 0) { }
-            else
+
+            if (numDescuento.Text.Length == 0)
             {
                 MessageBox.Show("Por favor, añada un descuento. Si no hay un descuento, añada 0 (cero).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (dGVProductos.Rows.Count > 0) { }
-            else
+
+            if (dGVProductos.Rows.Count == 0)
             {
                 MessageBox.Show("Por favor, añada un producto a la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -171,82 +174,34 @@ namespace farmaciaDonBosco
 
             string fechaFactura = dateFactura.Value.ToString("yyyy-MM-dd");
             string nombreCliente = txtBoxNombre.Text.ToString();
-            int tipoPago = 0;
-
-            if (radioBtnEfectivo.Checked)
-            {
-                tipoPago = 1;
-            }
-            else if (radioBtnTarjeta.Checked)
-            {
-                tipoPago = 2;
-            }
-
+            int tipoPago = radioBtnEfectivo.Checked ? 1 : 2;
             int descuento = Convert.ToInt32(numDescuento.Value);
-
             decimal subtotal = numMonto.Value;
             decimal total = numTotal.Value;
 
-            // Insertar la factura y obtener el ID
-            int idFactura = conexion.InsertarFactura(DateTime.Now, nombreCliente, tipoPago, descuento, subtotal, total);
-
-            if (idFactura > 0)
+            try
             {
-                // Insertar los detalles de la factura
-                try
+                // Insertar la factura y obtener el ID
+                int idFactura = conexion.InsertarFactura(DateTime.Now, nombreCliente, tipoPago, descuento, subtotal, total);
+
+                if (idFactura > 0)
                 {
-
-                    string queryDetalle = "INSERT INTO detalle_factura (idFactura, idProducto, cantidad, precio_unitario, subtotal) " +
-                                          "VALUES (@idFactura, @idProducto, @cantidad, @precio_unitario, @subtotal);";
-
-                    foreach (DataGridViewRow row in dGVProductos.Rows)
-                    {
-                        if (row.IsNewRow) continue;
-
-                        // Obtener el nombre del producto desde la columna "Producto"
-                        string nombreProducto = row.Cells["Producto"].Value.ToString();
-
-                        // Obtener el ID del producto usando el método ObtenerIdObjeto
-                        int idProducto = conexion.ObtenerIdObjeto(nombreProducto, "idProductos", "productos");
-
-                        if (idProducto > 0)
-                        {
-                            using (MySqlCommand cmd = new MySqlCommand(queryDetalle, conexion))
-                            {
-                                cmd.Parameters.AddWithValue("@idFactura", idFactura);
-                                cmd.Parameters.AddWithValue("@idProducto", idProducto);
-                                cmd.Parameters.AddWithValue("@cantidad", Convert.ToInt32(row.Cells["Cantidad"].Value));
-                                cmd.Parameters.AddWithValue("@precio_unitario", Convert.ToDecimal(row.Cells["PrecioUnitario"].Value));
-                                cmd.Parameters.AddWithValue("@subtotal", Convert.ToDecimal(row.Cells["Subtotal"].Value));
-
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Error al obtener el ID del producto '{nombreProducto}'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
+                    // Insertar los detalles de la factura
+                    conexion.InsertarDetallesFactura(idFactura, dGVProductos);
                     MessageBox.Show("Compra realizada con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    VaciarGrillas();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error al insertar los detalles de la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    if (conexion.establecerConexion().State == ConnectionState.Open)
-                    {
-                        conexion.establecerConexion().Close();
-                    }
+                    MessageBox.Show("Error al realizar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al realizar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al realizar la compra: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnAplicarDescuento_Click(object sender, EventArgs e)
         {
@@ -279,6 +234,18 @@ namespace farmaciaDonBosco
                 MessageBox.Show("Por favor, selecciona un producto para eliminar.");
             }
         }
+        private void VaciarGrillas()
+        {
+            txtBoxNombre.Text = string.Empty;
+            cBoxProductos.SelectedIndex = -1;
+            numDescuento.Value = 0; // Establecer el valor de NumericUpDown a 0
+            numMonto.Value = 0; // Establecer el valor de NumericUpDown a 0
+            numTotal.Value = 0;
+            dateFactura.Value = DateTime.Now; // Establecer la fecha actual en DateTimePicker
+            radioBtnEfectivo.Checked = false;
+            radioBtnTarjeta.Checked = false;
+            dGVProductos.Rows.Clear();
 
+        }
     }
 }
