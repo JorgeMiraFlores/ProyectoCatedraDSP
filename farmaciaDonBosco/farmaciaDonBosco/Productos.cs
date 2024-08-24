@@ -25,10 +25,10 @@ namespace farmaciaDonBosco.FormsGestion
         }
         private void Productos_Load(object sender, EventArgs e)
         {
-            //this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
-            //this.WindowState = FormWindowState.Maximized;
+
             CargarDatos();
-            datePickCaducidad.Format = DateTimePickerFormat.Custom; // Establece el formato personalizado
+
+            datePickCaducidad.Format = DateTimePickerFormat.Custom;
             datePickCaducidad.CustomFormat = "dd/MM/yyyy";
 
             dataGridView1.SelectionChanged += new EventHandler(dataGridView1_SelectionChanged);
@@ -113,6 +113,7 @@ namespace farmaciaDonBosco.FormsGestion
             string fabricanteSeleccionado = cBoxFabricantes.SelectedItem.ToString();
 
             int idProductos = 0;
+
             if (!string.IsNullOrEmpty(txtBoxID.Text))
             {
                 if (int.TryParse(txtBoxID.Text, out idProductos))
@@ -128,9 +129,11 @@ namespace farmaciaDonBosco.FormsGestion
 
 
             string nombreProducto = txtBoxNombre.Text;
-            int idMarca = conexion.ObtenerIdMarca(marcaSeleccionada);
-            int idFabricante = conexion.ObtenerIdFabricante(fabricanteSeleccionado);
-            int idTipo = conexion.ObtenerIdTipo(tipoSeleccionado);
+
+            int idMarca = conexion.ObtenerIdObjeto(marcaSeleccionada, "idMarca", "marcas");
+            int idFabricante = conexion.ObtenerIdObjeto(fabricanteSeleccionado, "idFabricante", "fabricante");
+            int idTipo = conexion.ObtenerIdObjeto(tipoSeleccionado, "idTipo", "tipo");
+
             decimal precio = numPrecio.Value;
             decimal stock = numStock.Value;
             string fechaCaducidad = datePickCaducidad.Value.ToString("yyyy-MM-dd");
@@ -172,9 +175,9 @@ namespace farmaciaDonBosco.FormsGestion
                 // Cargar los datos de la fila en los controles
                 txtBoxID.Text = filaSeleccionada.Cells["idProductos"].Value.ToString();
                 txtBoxNombre.Text = filaSeleccionada.Cells["NombreProducto"].Value.ToString();
-                cBoxMarcas.SelectedItem = filaSeleccionada.Cells["marca"].Value.ToString(); // Ajusta según el tipo de datos
-                cBoxFabricantes.SelectedItem = filaSeleccionada.Cells["fabricante"].Value.ToString(); // Ajusta según el tipo de datos
-                cBoxTipos.SelectedItem = filaSeleccionada.Cells["tipo"].Value.ToString(); // Ajusta según el tipo de datos
+                cBoxMarcas.SelectedItem = filaSeleccionada.Cells["marca"].Value.ToString(); 
+                cBoxFabricantes.SelectedItem = filaSeleccionada.Cells["fabricante"].Value.ToString(); 
+                cBoxTipos.SelectedItem = filaSeleccionada.Cells["tipo"].Value.ToString(); 
                 numPrecio.Value = Convert.ToDecimal(filaSeleccionada.Cells["precio"].Value);
                 numStock.Value = Convert.ToDecimal(filaSeleccionada.Cells["stock"].Value);
                 datePickCaducidad.Value = Convert.ToDateTime(filaSeleccionada.Cells["caducidad"].Value);
@@ -189,7 +192,7 @@ namespace farmaciaDonBosco.FormsGestion
                 MessageBox.Show("Datos de producto " + productoSeleccionado + " añadidos a la pestaña de actualizar, listos para ser actualizados.", "Producto Listo para Actualizar");
             }
         }
-            private void CargarDatos()
+        private void CargarDatos()
         {
             try
             {
@@ -247,7 +250,7 @@ namespace farmaciaDonBosco.FormsGestion
             txtBoxID.Visible = true;
         }
 
-        private void Formulario1_FormClosed(object sender, FormClosedEventArgs e)
+        private void Productos_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Detiene la aplicación
             Application.Exit();

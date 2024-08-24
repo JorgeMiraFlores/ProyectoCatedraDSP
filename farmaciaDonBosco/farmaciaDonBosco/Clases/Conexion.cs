@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Windows.Forms;
 
 namespace farmaciaDonBosco
@@ -137,6 +138,32 @@ namespace farmaciaDonBosco
             return dt;
         }
 
+        public DataTable ObtenerUsuarios()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                establecerConexion();
+
+                string query = "SELECT usuarios.idUsuarios, usuarios.usuario, roles.nombre AS nombreRol, usuarios.nombre, usuarios.password " +
+                               "FROM farmacia_don_bosco.usuarios " +
+                               "JOIN farmacia_don_bosco.roles ON usuarios.idRol = roles.idRoles;";
+
+                MySqlCommand cmd = new MySqlCommand(query, cnx);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(dt);
+
+                cnx.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message);
+            }
+
+            return dt;
+        }
+        // Funcion para eliminar cualquier objeto de la base de datos, aplica restricciones
         public bool EliminarObjeto(int id, string tabla, string columna)
         {
             bool resultado = false;
@@ -167,100 +194,37 @@ namespace farmaciaDonBosco
 
             return resultado;
         }
-
-        public int ObtenerIdMarca(string nombreMarca)
+        // Funcion para obtener el id de cualquier objeto de la base de datos
+        public int ObtenerIdObjeto(string nombre, string idNombre, string tabla)
         {
-            int idMarca = -1; // Valor por defecto si no se encuentra la marca
+            int idObjeto = -1; // Valor por defecto si no se encuentra la marca
 
             try
             {
                 establecerConexion();
 
-                string query = "SELECT idMarca FROM marcas WHERE nombre = @nombreMarca";
+                string query = $"SELECT {idNombre} FROM {tabla} WHERE nombre = @nombre";
                 using (MySqlCommand comando = new MySqlCommand(query, cnx))
                 {
-                    comando.Parameters.AddWithValue("@nombreMarca", nombreMarca);
+                    comando.Parameters.AddWithValue("@nombre", nombre);
 
-                    object resultado = comando.ExecuteScalar(); 
+                    object resultado = comando.ExecuteScalar();
                     if (resultado != null)
                     {
-                        idMarca = Convert.ToInt32(resultado);
+                        idObjeto = Convert.ToInt32(resultado);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener el ID de la marca: " + ex.Message);
+                MessageBox.Show($"Error al obtener el ID de {nombre}: " + ex.Message);
             }
             finally
             {
-                cnx.Close(); 
+                cnx.Close();
             }
 
-            return idMarca;
-        }
-        public int ObtenerIdFabricante(string nombreFabricante)
-        {
-            int idFabricante = -1;
-
-            try
-            {
-                establecerConexion();
-
-                string query = "SELECT idFabricante FROM fabricante WHERE nombre = @nombreFabricante";
-                using (MySqlCommand comando = new MySqlCommand(query, cnx))
-                {
-                    comando.Parameters.AddWithValue("@nombreFabricante", nombreFabricante);
-
-                    object resultado = comando.ExecuteScalar(); 
-                    if (resultado != null)
-                    {
-                        idFabricante = Convert.ToInt32(resultado);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al obtener el ID del fabricante: " + ex.Message);
-            }
-            finally
-            {
-                cnx.Close(); 
-            }
-
-            return idFabricante;
-        }
-
-        public int ObtenerIdTipo(string nombreTipo)
-        {
-            int idTipo = -1; 
-
-            try
-            {
-                establecerConexion();
-
-                string query = "SELECT idTipo FROM tipo WHERE nombre = @nombreTipo";
-                using (MySqlCommand comando = new MySqlCommand(query, cnx))
-                {
-                    comando.Parameters.AddWithValue("@nombreTipo", nombreTipo);
-
-                    object resultado = comando.ExecuteScalar(); 
-                    if (resultado != null)
-                    {
-                        idTipo = Convert.ToInt32(resultado);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al obtener el ID del tipo: " + ex.Message);
-            }
-            finally
-            {
-                cnx.Close(); 
-            }
-
-            return idTipo;
+            return idObjeto;
         }
 
         //Agregar funciones
@@ -375,5 +339,130 @@ namespace farmaciaDonBosco
                 }
             }
         }
+
+
+        public void ActualizarUsuarios(int idUsuarios, string nombre, int idRol, string usuario, string contra)
+        {
+            try
+            {
+                establecerConexion();
+                string query = "UPDATE usuarios " +
+                               "SET usuario = @usuario, idRol = @idRol, nombre = @nombre, password = @contra " +
+                               "WHERE idUsuarios = @idUsuarios";
+
+                using (MySqlCommand comando = new MySqlCommand(query, cnx))
+                {
+                    comando.Parameters.AddWithValue("@idUsuarios", idUsuarios);
+                    comando.Parameters.AddWithValue("@usuario", usuario);
+                    comando.Parameters.AddWithValue("@idRol", idRol);
+                    comando.Parameters.AddWithValue("@nombre", nombre);
+                    comando.Parameters.AddWithValue("@contra", contra);
+
+                    // Usa ExecuteNonQuery para operaciones de actualización
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas > 0)
+                    {
+                        MessageBox.Show("Usuario actualizado correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el usuario para actualizar.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar usuario: " + ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
+
+        public bool AgregarUsuario(string nombre, int idRol, string usuario, string contra)
+        {
+            try
+            {
+                establecerConexion();
+                string query = "INSERT INTO usuarios (nombre, idRol, usuario, password) " +
+                               "VALUES (@nombre, @idRol, @usuario, @contra)";
+
+                using (MySqlCommand comando = new MySqlCommand(query, cnx))
+                {
+                    comando.Parameters.AddWithValue("@nombre", nombre);
+                    comando.Parameters.AddWithValue("@idRol", idRol);
+                    comando.Parameters.AddWithValue("@usuario", usuario);
+                    comando.Parameters.AddWithValue("@contra", contra);
+
+                    // Usa ExecuteNonQuery para operaciones de inserción
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Verifica si el error es por duplicado de clave única
+                if (ex.Number == 1062) // Código de error para duplicado en MySQL
+                {
+                    MessageBox.Show("El nombre de usuario ya existe. Por favor, elija otro nombre de usuario.");
+                    return false;
+                }
+                else
+                {
+                    MessageBox.Show("Error al agregar usuario: " + ex.Message);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar usuario: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
+
+        public decimal ObtenerPrecioProducto(string nombreProducto)
+        {
+            decimal precio = 0;
+
+            try
+            {
+                establecerConexion();
+
+                string query = "SELECT precio FROM productos WHERE nombre = @nombreProducto";
+                MySqlCommand cmd = new MySqlCommand(query, cnx);
+                cmd.Parameters.AddWithValue("@nombreProducto", nombreProducto);
+
+                object resultado = cmd.ExecuteScalar();
+
+                if (resultado != null)
+                {
+                    precio = Convert.ToDecimal(resultado);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el precio del producto: " + ex.Message);
+            }
+            finally
+            {
+                cnx.Close();
+            }
+
+            return precio;
+        }
+
+
+
     }
 }

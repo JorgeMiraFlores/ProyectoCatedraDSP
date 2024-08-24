@@ -27,7 +27,7 @@ namespace farmaciaDonBosco
         {
             Conexion conexion = new Conexion();
             DataTable dt = conexion.ObtenerDatos("tipo");
-            dataGridView1.DataSource = dt;
+            dataGVTipo.DataSource = dt;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -49,6 +49,9 @@ namespace farmaciaDonBosco
 
                 CargarDatos();
 
+                ocultarId();
+
+                VaciarGrillas();
             }
             else
             {
@@ -60,10 +63,10 @@ namespace farmaciaDonBosco
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGVTipo.SelectedRows.Count > 0)
             {
                 // Obtener el ID del producto seleccionado
-                int idMarca = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["idTipo"].Value);
+                int idMarca = Convert.ToInt32(dataGVTipo.SelectedRows[0].Cells["idTipo"].Value);
 
                 // Confirmar la eliminación
                 DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -75,20 +78,66 @@ namespace farmaciaDonBosco
 
                     if (exito)
                     {
-                        MessageBox.Show("Producto eliminado correctamente.", "Eliminar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Tipo de producto eliminado correctamente.", "Eliminar tipo de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         // Recargar los datos
                         CargarDatos();
+                        button1.Enabled = false;
+
+
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo eliminar el producto.", "Eliminar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No se pudo eliminar el tipo de producto.", "Eliminar tipo de producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona un producto para eliminar.", "Eliminar Producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, selecciona un tipo de producto para eliminar.", "Eliminar tipo de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void dataGVTipo_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGVTipo.SelectedRows.Count > 0)
+            {
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dataGVTipo.SelectedRows[0];
+
+                // Cargar los datos de la fila en los controles
+                txtBoxID.Text = filaSeleccionada.Cells["idTipo"].Value.ToString();
+                txtBoxTipoNombre.Text = filaSeleccionada.Cells["nombre"].Value.ToString();
+
+                string productoSeleccionado = filaSeleccionada.Cells["nombre"].Value.ToString();
+
+                btnAgregarTipo.Text = "Actualizar";
+
+                button1.Enabled = true;
+
+                mostrarId();
+
+                MessageBox.Show("Datos de tipo de producto " + productoSeleccionado + " añadidos a los campos, listos para ser actualizado o eliminado.", "Producto Listo para Actualizar");
+            }
+        }
+
+        private void VaciarGrillas()
+        {
+            txtBoxID.Text = string.Empty;
+            txtBoxTipoNombre.Text= string.Empty;
+        }
+
+
+        private void mostrarId()
+        {
+            label9.Visible = true;
+            txtBoxID.Visible = true;
+        }
+
+        private void ocultarId()
+        {
+            label9.Visible = false;
+            txtBoxID.Visible = false;
+        }
+
     }
 }

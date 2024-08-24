@@ -5,19 +5,89 @@
 DROP SCHEMA IF EXISTS `farmacia_don_bosco` ;
 CREATE SCHEMA IF NOT EXISTS `farmacia_don_bosco` DEFAULT CHARACTER SET utf8 ;
 
+
+-- -----------------------------------------------------
+-- Table `farmacia_don_bosco`.`roles`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`roles`;
+CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`roles` (
+	`idRoles` INT NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(100) NOT NULL,
+
+	PRIMARY KEY (`idRoles`)
+)
+ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `farmacia_don_bosco`.`usuarios`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `farmacia_don_bosco`.`usuarios`;
 CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`usuarios` (
-	`idEsuarios` INT NOT NULL AUTO_INCREMENT,
-    `usuario` VARCHAR(100) NOT NULL,
+	`idUsuarios` INT NOT NULL AUTO_INCREMENT,
+    `usuario` VARCHAR(100) NOT NULL UNIQUE,
+	`idRol` INT NOT NULL,
 	`nombre` VARCHAR(100) NOT NULL,
 	`password` VARCHAR(100) NOT NULL,
 
-	PRIMARY KEY (`idEsuarios`)
+	PRIMARY KEY (`idUsuarios`),
+    
+	FOREIGN KEY (`idRol`) REFERENCES `farmacia_don_bosco`.`roles` (`idRoles`)
 )
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `farmacia_don_bosco`.`formas_pago`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`formas_pago`;
+CREATE TABLE IF NOT EXISTS `farmacia_don_bosco`.`formas_pago` (
+    `idFormaPago` INT NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`idFormaPago`)
+)
+ENGINE = InnoDB;
+
+-- Insertar en la tabla `formas_pago`
+INSERT INTO `farmacia_don_bosco`.`formas_pago` (`nombre`)
+VALUES ('Efectivo'), ('Tarjeta');
+
+-- -----------------------------------------------------
+-- Table `farmacia_don_bosco`.`usuarios`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`factura`;
+CREATE TABLE IF NOT EXISTS `factura` (
+    `idFactura` INT NOT NULL AUTO_INCREMENT,
+    `fecha` DATETIME NOT NULL,
+    `cliente` VARCHAR(200) NOT NULL,
+	`idFormaPago` INT NOT NULL,
+    `descuento` FLOAT(3,2) DEFAULT 0,
+    
+    PRIMARY KEY (`idFactura`),
+	FOREIGN KEY (`idFormaPago`) REFERENCES `formas_pago`(`idFormaPago`)
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `farmacia_don_bosco`.`detalle_factura`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `farmacia_don_bosco`.`detalle_factura`;
+CREATE TABLE IF NOT EXISTS `detalle_factura` (
+    `idDetalle` INT NOT NULL AUTO_INCREMENT,
+    `idFactura` INT NOT NULL,
+    `idProducto` INT NOT NULL,
+    `cantidad` INT NOT NULL,
+    `precio_unitario` FLOAT(6,2) NOT NULL,
+    `subtotal` FLOAT(6,2) NOT NULL,
+
+    PRIMARY KEY (`idDetalle`),
+    
+    FOREIGN KEY (`idFactura`) REFERENCES `factura`(`idFactura`) ON DELETE CASCADE,
+    FOREIGN KEY (`idProducto`) REFERENCES `productos`(`idProductos`) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+
+
+
 -- -----------------------------------------------------
 -- Table `farmacia_don_bosco`.`marcas`
 -- -----------------------------------------------------
@@ -98,8 +168,12 @@ INSERT INTO `farmacia_don_bosco`.`productos` (
 ) VALUES
 ('Aspirina 500 mg 20 Comprimidos sp.', 1, 1, 1, 10.50, '2025-12-31', 100);
 
-INSERT INTO `farmacia_don_bosco`.`usuarios` (`usuario`, `nombre`, `password`)
-VALUES ('user', 'user', '123');
+INSERT INTO `farmacia_don_bosco`.`roles` (`nombre`)
+VALUES ('Administrador'),('Cajero');
+
+
+INSERT INTO `farmacia_don_bosco`.`usuarios` (`usuario`, `idRol`, `nombre`, `password`)
+VALUES ('Jorge', 1, 'george', '123');
 
 
 use farmacia_don_bosco;

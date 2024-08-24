@@ -88,5 +88,26 @@ namespace farmaciaDonBosco
             // Detiene la aplicación
             Application.Exit();
         }
+
+        private void btnUsuariosForm_Click(object sender, EventArgs e)
+        {
+            //Dirige al formulario de marcas
+
+            Usuarios Usuarios = new Usuarios();
+
+            Usuarios.Show();
+
+            this.Hide();
+        }
+
+        private void btnFacturaGo_Click(object sender, EventArgs e)
+        {
+            string name = "";
+            GenerarFactura GenerarFactura = new GenerarFactura();
+
+            GenerarFactura.Show();
+
+            this.Hide();
+        }
     }
 }
