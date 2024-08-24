@@ -21,7 +21,7 @@ namespace farmaciaDonBosco
             this.StartPosition = FormStartPosition.CenterScreen;
 
             //Picture box con imagen de la farmacia
-            pictureBox1.ImageLocation = @"C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\resources\iconLogin.png";
+            pictureBox1.ImageLocation = @"C:\iconLogin.png";
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void pictureBox1_Click(object sender, EventArgs e)
