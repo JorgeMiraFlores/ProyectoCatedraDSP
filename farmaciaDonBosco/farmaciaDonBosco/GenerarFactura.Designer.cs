@@ -62,7 +62,8 @@
             this.dateFactura.Name = "dateFactura";
             this.dateFactura.Size = new System.Drawing.Size(200, 20);
             this.dateFactura.TabIndex = 0;
-            this.dateFactura.Value = new System.DateTime(2024, 8, 23, 20, 2, 5, 0);
+            this.dateFactura.Value = new System.DateTime(2024, 8, 26, 0, 0, 0, 0);
+            this.dateFactura.ValueChanged += new System.EventHandler(this.dateFactura_ValueChanged);
             // 
             // label1
             // 

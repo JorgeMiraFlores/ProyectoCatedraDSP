@@ -262,13 +262,16 @@ namespace farmaciaDonBosco.FormsGestion
             {
                 VaciarGrillas();
                 MessageBox.Show("Los campos de texto de insersión han sido vaciados");
+
             }
             else if (ComprobarGrillasLlenas() && txtBoxID.Visible == true)
             {
                 VaciarGrillas();
-                MessageBox.Show("Los campos de texto de actualización han sido vaciados");
+
+                btnAgregar.Text = "Agregar";
                 txtBoxID.Visible = false;
                 label9.Visible = false;
+                MessageBox.Show("Los campos de texto de actualización han sido vaciados");
             }
             else if (!ComprobarGrillasLlenas() || txtBoxID.Visible == false || datePickCaducidad.Value == DateTime.Now.Date) {
                 MessageBox.Show("Los campos de texto ya están vacios");

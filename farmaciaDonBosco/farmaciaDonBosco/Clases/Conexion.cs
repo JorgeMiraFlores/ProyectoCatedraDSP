@@ -266,13 +266,13 @@ namespace farmaciaDonBosco
                 }
             }
         }
-        public void AgregarTipos(string nombreTipo)
+        public void AgregarCaracteristicas(string nombreTipo, string tabla)
         {
             try
             {
                 establecerConexion();
 
-                string query = "INSERT INTO tipo (nombre) " +
+                string query = $"INSERT INTO {tabla} (nombre) " +
                                "VALUES (@nombre)";
                 using (MySqlCommand comando = new MySqlCommand(query, cnx))
                 {
@@ -298,6 +298,44 @@ namespace farmaciaDonBosco
                 }
             }
         }
+        public void ActualizarCaracteristicas(int id, string nuevoNombre, string tabla)
+        {
+            try
+            {
+                establecerConexion();
+
+                string query = $"UPDATE {tabla} SET nombre = @nuevoNombre " +
+                               "WHERE idTipo = @id";
+                using (MySqlCommand comando = new MySqlCommand(query, cnx))
+                {
+                    comando.Parameters.AddWithValue("@nuevoNombre", nuevoNombre);
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    // Usa ExecuteNonQuery para operaciones de actualización
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas > 0)
+                    {
+                        MessageBox.Show("Características actualizadas correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró un registro con el ID proporcionado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar las características: " + ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
+
         public void ActualizarProductos(int idProductos, string nombre, int marca, int fabricante, int tipo, decimal precio, string fechaCaducidad, decimal stock)
         {
             try

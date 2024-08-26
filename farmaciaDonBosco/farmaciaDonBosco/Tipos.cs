@@ -42,16 +42,42 @@ namespace farmaciaDonBosco
 
         private void btnAgregarTipo_Click(object sender, EventArgs e)
         {
+            string nombreTipo = txtBoxTipoNombre.Text;
+            int idTipo = 0;
+            if(txtBoxID.Text == string.Empty)
+            {
+                txtBoxID.Text = "0";
+            }
+            else
+            {
+                txtBoxID.Text = txtBoxID.Text;
+            }
+            if (int.TryParse(txtBoxID.Text, out idTipo))
+            {
+                // El valor es un número válido, puedes usar idTipo
+            }
+            else
+            {
+                // El valor en txtBoxID no es un número válido
+                MessageBox.Show("Por favor, ingrese un número válido en el campo de ID.");
+                return; // Salir del método para evitar continuar con un valor inválido
+            }
             if (txtBoxTipoNombre.Text.Length > 0)
             {
-                string nombreTipo = txtBoxTipoNombre.Text;
-                conexion.AgregarTipos(nombreTipo);
+                if (btnAgregarTipo.Text == "Agregar")
+                {
+                    conexion.AgregarCaracteristicas(nombreTipo, "tipo");
+                    CargarDatos();
+                    ocultarId();
+                    VaciarGrillas();
 
-                CargarDatos();
-
-                ocultarId();
-
-                VaciarGrillas();
+                }else if(btnAgregarTipo.Text == "Actualizar")
+                {                                        
+                    conexion.ActualizarCaracteristicas(idTipo, nombreTipo, "tipo");
+                    CargarDatos();
+                    ocultarId();
+                    VaciarGrillas();
+                }
             }
             else
             {
@@ -139,5 +165,11 @@ namespace farmaciaDonBosco
             txtBoxID.Visible = false;
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            VaciarGrillas();
+            ocultarId();
+            btnAgregarTipo.Text = "Agregar";
+        }
     }
 }

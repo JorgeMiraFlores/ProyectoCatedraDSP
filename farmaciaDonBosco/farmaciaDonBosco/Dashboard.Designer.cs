@@ -62,9 +62,9 @@
             // 
             // btnMarcasGo
             // 
-            this.btnMarcasGo.Location = new System.Drawing.Point(86, 69);
+            this.btnMarcasGo.Location = new System.Drawing.Point(62, 68);
             this.btnMarcasGo.Name = "btnMarcasGo";
-            this.btnMarcasGo.Size = new System.Drawing.Size(137, 23);
+            this.btnMarcasGo.Size = new System.Drawing.Size(193, 23);
             this.btnMarcasGo.TabIndex = 1;
             this.btnMarcasGo.Text = "Gestor de marcas";
             this.btnMarcasGo.UseVisualStyleBackColor = true;
@@ -72,9 +72,9 @@
             // 
             // btnProducGo
             // 
-            this.btnProducGo.Location = new System.Drawing.Point(86, 331);
+            this.btnProducGo.Location = new System.Drawing.Point(62, 333);
             this.btnProducGo.Name = "btnProducGo";
-            this.btnProducGo.Size = new System.Drawing.Size(133, 23);
+            this.btnProducGo.Size = new System.Drawing.Size(193, 23);
             this.btnProducGo.TabIndex = 2;
             this.btnProducGo.Text = "Gestor de productos";
             this.btnProducGo.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
             // 
             // btnTiposGo
             // 
-            this.btnTiposGo.Location = new System.Drawing.Point(86, 245);
+            this.btnTiposGo.Location = new System.Drawing.Point(62, 245);
             this.btnTiposGo.Name = "btnTiposGo";
-            this.btnTiposGo.Size = new System.Drawing.Size(133, 23);
+            this.btnTiposGo.Size = new System.Drawing.Size(193, 23);
             this.btnTiposGo.TabIndex = 2;
             this.btnTiposGo.Text = "Gestor de tipos";
             this.btnTiposGo.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             // 
             // btnFabricGo
             // 
-            this.btnFabricGo.Location = new System.Drawing.Point(86, 156);
+            this.btnFabricGo.Location = new System.Drawing.Point(62, 156);
             this.btnFabricGo.Name = "btnFabricGo";
-            this.btnFabricGo.Size = new System.Drawing.Size(133, 23);
+            this.btnFabricGo.Size = new System.Drawing.Size(193, 23);
             this.btnFabricGo.TabIndex = 3;
             this.btnFabricGo.Text = "Gestor de fabricantes";
             this.btnFabricGo.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // 
             // btnHistGo
             // 
-            this.btnHistGo.Location = new System.Drawing.Point(99, 245);
+            this.btnHistGo.Location = new System.Drawing.Point(85, 245);
             this.btnHistGo.Name = "btnHistGo";
-            this.btnHistGo.Size = new System.Drawing.Size(138, 23);
+            this.btnHistGo.Size = new System.Drawing.Size(187, 23);
             this.btnHistGo.TabIndex = 0;
             this.btnHistGo.Text = "Ver historial de facturas";
             this.btnHistGo.UseVisualStyleBackColor = true;
@@ -125,9 +125,9 @@
             // 
             // btnFacturaGo
             // 
-            this.btnFacturaGo.Location = new System.Drawing.Point(99, 156);
+            this.btnFacturaGo.Location = new System.Drawing.Point(85, 156);
             this.btnFacturaGo.Name = "btnFacturaGo";
-            this.btnFacturaGo.Size = new System.Drawing.Size(138, 23);
+            this.btnFacturaGo.Size = new System.Drawing.Size(187, 23);
             this.btnFacturaGo.TabIndex = 0;
             this.btnFacturaGo.Text = "Generar facturas";
             this.btnFacturaGo.UseVisualStyleBackColor = true;
@@ -168,9 +168,9 @@
             // 
             // btnUsuariosForm
             // 
-            this.btnUsuariosForm.Location = new System.Drawing.Point(111, 197);
+            this.btnUsuariosForm.Location = new System.Drawing.Point(104, 204);
             this.btnUsuariosForm.Name = "btnUsuariosForm";
-            this.btnUsuariosForm.Size = new System.Drawing.Size(129, 23);
+            this.btnUsuariosForm.Size = new System.Drawing.Size(171, 23);
             this.btnUsuariosForm.TabIndex = 0;
             this.btnUsuariosForm.Text = "Administrar usuarios";
             this.btnUsuariosForm.UseVisualStyleBackColor = true;

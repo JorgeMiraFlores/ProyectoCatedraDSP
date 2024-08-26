@@ -247,5 +247,10 @@ namespace farmaciaDonBosco
             dGVProductos.Rows.Clear();
 
         }
+
+        private void dateFactura_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

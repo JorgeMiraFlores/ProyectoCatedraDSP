@@ -4,7 +4,7 @@ select * from productos;
 
 select * from usuarios;
 
-select * from marcas;
+select * from tipo;
 select * from detalle_factura;
 select * from factura;
 

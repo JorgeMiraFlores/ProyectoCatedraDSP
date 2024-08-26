@@ -36,6 +36,7 @@
             this.dataGVTipo = new System.Windows.Forms.DataGridView();
             this.txtBoxID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVTipo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,12 +53,12 @@
             // 
             this.txtBoxTipoNombre.Location = new System.Drawing.Point(38, 176);
             this.txtBoxTipoNombre.Name = "txtBoxTipoNombre";
-            this.txtBoxTipoNombre.Size = new System.Drawing.Size(194, 20);
+            this.txtBoxTipoNombre.Size = new System.Drawing.Size(211, 20);
             this.txtBoxTipoNombre.TabIndex = 12;
             // 
             // btnAgregarTipo
             // 
-            this.btnAgregarTipo.Location = new System.Drawing.Point(96, 260);
+            this.btnAgregarTipo.Location = new System.Drawing.Point(38, 259);
             this.btnAgregarTipo.Name = "btnAgregarTipo";
             this.btnAgregarTipo.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarTipo.TabIndex = 11;
@@ -121,11 +122,22 @@
             this.label9.Text = "ID producto:";
             this.label9.Visible = false;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(155, 259);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(94, 23);
+            this.btnLimpiar.TabIndex = 24;
+            this.btnLimpiar.Text = "Limpiar campos";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // Tipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dataGVTipo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtBoxID);
@@ -156,5 +168,6 @@
         private System.Windows.Forms.DataGridView dataGVTipo;
         private System.Windows.Forms.TextBox txtBoxID;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
