@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace farmaciaDonBosco
 {
-    public partial class Marcas : Form
+    public partial class AnadirCarrera : Form
     {
-        public Marcas()
+        public AnadirCarrera()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -39,6 +39,11 @@ namespace farmaciaDonBosco
             dashboard.Show();
 
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

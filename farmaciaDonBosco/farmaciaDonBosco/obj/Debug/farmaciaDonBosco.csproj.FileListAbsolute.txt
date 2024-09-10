@@ -16,9 +16,6 @@ C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\S
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\MySql.Data.xml
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmacia.EBF72649.Up2Date
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Dashboard.resources
-C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.FormsGestion.Fabricantes.resources
-C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Marcas.resources
-C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.FormsGestion.Productos.resources
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\BouncyCastle.Cryptography.dll
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\Google.Protobuf.dll
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\K4os.Compression.LZ4.dll
@@ -53,9 +50,6 @@ C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\S
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Numerics.Vectors.xml
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Tipos.resources
-C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Usuarios.resources
-C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.GenerarFactura.resources
 C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.HistorialFactura.resources
 C:\Users\Jorge\Documents\GitHub\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\farmaciaDonBosco.exe.config
 C:\Users\Jorge\Documents\GitHub\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\farmaciaDonBosco.exe
@@ -175,3 +169,7 @@ C:\Users\USUARIO\Desktop\C1_SP240085_DesPra02DSP\ProyectoCatedraDSP\farmaciaDonB
 C:\Users\USUARIO\Desktop\C1_SP240085_DesPra02DSP\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmacia.EBF72649.Up2Date
 C:\Users\USUARIO\Desktop\C1_SP240085_DesPra02DSP\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.exe
 C:\Users\USUARIO\Desktop\C1_SP240085_DesPra02DSP\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.pdb
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.FormsGestion.InscribirAlumnos.resources
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.AnadirMateria.resources
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.AnadirCarrera.resources
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.FormsGestion.InscribirMaterias.resources

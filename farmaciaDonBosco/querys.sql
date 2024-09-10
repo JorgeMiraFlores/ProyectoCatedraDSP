@@ -7,6 +7,7 @@ select * from usuarios;
 select * from tipo;
 select * from detalle_factura;
 select * from factura;
+
 UPDATE `farmacia_don_bosco`.`usuarios`
 SET `idRol` = 2, `nombre` = 'Jorge Mira', `password` = '456'
 WHERE `usuario` = 'Jorge';

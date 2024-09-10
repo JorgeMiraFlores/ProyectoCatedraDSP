@@ -14,6 +14,9 @@ namespace farmaciaDonBosco
 {
     public partial class Login : Form
     {
+
+        Conexion conexion = new Conexion();
+
         public Login()
         {
             InitializeComponent();
@@ -21,53 +24,36 @@ namespace farmaciaDonBosco
             this.StartPosition = FormStartPosition.CenterScreen;
 
             //Picture box con imagen de la farmacia
-            pictureBox1.ImageLocation = @"C:\iconLogin.png";
+            //pictureBox1.ImageLocation = @"C:\iconLogin.png";
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        public void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-           
-        }
+            // Obtener las credenciales del formulario (asumiendo que tienes dos TextBox: txtUsuario y txtContrasena)
+            string nombreUsuario = txtUsuario.Text;
+            string contrasena = txtContrasena.Text;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Declarando el texto de los textbox: usuario y password
-            string user = textBox1.Text;
-            string pasword = textBox2.Text;
 
-            Conexion conexion = new Conexion();
+            bool esValido = conexion.EvaluarLogin(nombreUsuario, contrasena);
 
-            if (conexion.EvaluarLogin(user, pasword))
+            if (esValido)
             {
-                string usuario = conexion.ObtenerUsuario(user);
-                MessageBox.Show("Login exitoso, bienvenid@ "+usuario);
+                // Si las credenciales son válidas, abrir el formulario Dashboard
+                MessageBox.Show("Inicio de sesión exitoso.");
+                Dashboard dashboardForm = new Dashboard("xd");
+                dashboardForm.Show();
 
-                
-                Dashboard dashboard = new Dashboard(usuario);
-               
-                dashboard.Show();
-
+                // Cerrar el formulario de login actual
                 this.Hide();
-
             }
             else
             {
-                MessageBox.Show("Nombre de usuario o contraseña incorrectos");
+                // Si las credenciales son inválidas, mostrar un mensaje de error
+                MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
             }
-
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                textBox2.PasswordChar = '\0';
-            }
-            else {
-                textBox2.PasswordChar = '*';
-            }
-
-        }
 
         private void Login_Load(object sender, EventArgs e)
         {

@@ -66,7 +66,6 @@
             this.btnMarcasGo.TabIndex = 1;
             this.btnMarcasGo.Text = "&Inscribir alumnos";
             this.btnMarcasGo.UseVisualStyleBackColor = true;
-            this.btnMarcasGo.Click += new System.EventHandler(this.btnMarcasGo_Click);
             // 
             // btnProducGo
             // 
@@ -77,7 +76,6 @@
             this.btnProducGo.TabIndex = 2;
             this.btnProducGo.Text = "&Añadir carreras";
             this.btnProducGo.UseVisualStyleBackColor = true;
-            this.btnProducGo.Click += new System.EventHandler(this.btnProducGo_Click);
             // 
             // btnTiposGo
             // 
@@ -88,7 +86,6 @@
             this.btnTiposGo.TabIndex = 2;
             this.btnTiposGo.Text = "&Añadir materias";
             this.btnTiposGo.UseVisualStyleBackColor = true;
-            this.btnTiposGo.Click += new System.EventHandler(this.btnTiposGo_Click);
             // 
             // btnFabricGo
             // 
@@ -99,7 +96,6 @@
             this.btnFabricGo.TabIndex = 3;
             this.btnFabricGo.Text = "&Inscribir materias";
             this.btnFabricGo.UseVisualStyleBackColor = true;
-            this.btnFabricGo.Click += new System.EventHandler(this.btnFabricGo_Click);
             // 
             // button1
             // 
@@ -110,7 +106,6 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Cerrar Sesión";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 

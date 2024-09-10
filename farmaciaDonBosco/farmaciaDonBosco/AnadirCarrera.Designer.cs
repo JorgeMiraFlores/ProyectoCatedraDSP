@@ -1,6 +1,6 @@
 ﻿namespace farmaciaDonBosco
 {
-    partial class Marcas
+    partial class AnadirCarrera
     {
         /// <summary>
         /// Required designer variable.
@@ -78,6 +78,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Agregar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -161,7 +162,7 @@
             this.btnRegresar.Text = "&Regresar al Dashboard";
             this.btnRegresar.UseVisualStyleBackColor = true;
             // 
-            // Marcas
+            // AnadirCarrera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,7 +176,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Marcas";
+            this.Name = "AnadirCarrera";
             this.Text = "Anadir carreras";
             this.Load += new System.EventHandler(this.Marcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

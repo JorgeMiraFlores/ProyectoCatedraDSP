@@ -59,7 +59,6 @@
             this.btnRegresar.TabIndex = 15;
             this.btnRegresar.Text = "&Regresar al Dashboard";
             this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // label3
             // 
@@ -169,6 +168,7 @@
             this.button2.TabIndex = 32;
             this.button2.Text = "Inscribir materia seleccionada";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -216,8 +216,6 @@
             this.Controls.Add(this.btnRegresar);
             this.Name = "InscribirMaterias";
             this.Text = "inscribir materias";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Productos_FormClosed);
-            this.Load += new System.EventHandler(this.Productos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

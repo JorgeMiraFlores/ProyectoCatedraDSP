@@ -1,6 +1,6 @@
 ﻿namespace farmaciaDonBosco
 {
-    partial class GenerarFactura
+    partial class AnadirMateria
     {
         /// <summary>
         /// Required designer variable.
@@ -38,10 +38,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -76,7 +76,6 @@
             this.btnAñadir.TabIndex = 17;
             this.btnAñadir.Text = "&Añadir materia";
             this.btnAñadir.UseVisualStyleBackColor = true;
-            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
             // dGVProductos
             // 
@@ -142,12 +141,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Sí",
+            "No"});
             this.comboBox1.Location = new System.Drawing.Point(584, 24);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(222, 21);
             this.comboBox1.TabIndex = 25;
             this.comboBox1.Tag = "";
-            this.comboBox1.Text = "si o no";
             // 
             // groupBox1
             // 
@@ -176,6 +177,14 @@
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "&Materias";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(654, 20);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(240, 21);
+            this.comboBox2.TabIndex = 25;
             // 
             // label4
             // 
@@ -209,14 +218,6 @@
             this.label5.Size = new System.Drawing.Size(204, 32);
             this.label5.TabIndex = 24;
             this.label5.Text = ":&Laboratorio(Precio)";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(654, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(240, 21);
-            this.comboBox2.TabIndex = 25;
             // 
             // groupBox3
             // 
@@ -295,7 +296,7 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
-            // GenerarFactura
+            // AnadirMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -312,7 +313,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "GenerarFactura";
+            this.Name = "AnadirMateria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "si";
             this.Text = "Añadir materias";

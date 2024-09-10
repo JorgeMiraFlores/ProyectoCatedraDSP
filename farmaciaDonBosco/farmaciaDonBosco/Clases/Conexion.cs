@@ -12,7 +12,7 @@ namespace farmaciaDonBosco
         MySqlConnection cnx = new MySqlConnection();
 
         static string servidor = "localhost";
-        static string db = "farmacia_don_bosco";
+        static string db = "universidad_don_bosco";
         static string usuario = "root";
         static string password = "";
         static string port = "3306";

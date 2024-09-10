@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace farmaciaDonBosco.FormsGestion
 {
-    public partial class Fabricantes : Form
+    public partial class InscribirAlumnos : Form
     {
-        public Fabricantes()
+        public InscribirAlumnos()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -34,11 +34,6 @@ namespace farmaciaDonBosco.FormsGestion
             this.Hide();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void CargarDatos()
         {
             Conexion conexion = new Conexion();
@@ -46,32 +41,8 @@ namespace farmaciaDonBosco.FormsGestion
             dataGridView1.DataSource = dt;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }

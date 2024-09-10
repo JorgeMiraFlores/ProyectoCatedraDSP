@@ -17,8 +17,6 @@ namespace farmaciaDonBosco
         {
             
             InitializeComponent();
-
-            lblWelcome.Text = "Bienvenid@ "+ usuario;
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -27,97 +25,5 @@ namespace farmaciaDonBosco
            //this.WindowState = FormWindowState.Maximized;
         }
 
-        private void btnMarcasGo_Click(object sender, EventArgs e)
-        {
-            //Dirige al formulario de marcas
-
-            Marcas Marcas = new Marcas();
-
-            Marcas.Show();
-
-            this.Hide();
-        }
-
-        private void btnFabricGo_Click(object sender, EventArgs e)
-        {
-            //Dirige al formulario de marcas
-
-            Fabricantes Marcas = new Fabricantes();
-
-            Marcas.Show();
-
-            this.Hide();
-
-        }
-
-        private void btnTiposGo_Click(object sender, EventArgs e)
-        {
-            //Dirige al formulario de marcas
-
-            Tipos Marcas = new Tipos();
-
-            Marcas.Show();
-
-            this.Hide();
-        }
-
-        private void btnProducGo_Click(object sender, EventArgs e)
-        {
-            //Dirige al formulario de marcas
-
-            InscribirMaterias Marcas = new InscribirMaterias();
-
-            Marcas.Show();
-
-            this.Hide();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string name = "";
-            Login login = new Login();
-
-            login.Show();
-
-            this.Hide();
-        }
-
-
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // Detiene la aplicación
-            Application.Exit();
-        }
-
-        private void btnUsuariosForm_Click(object sender, EventArgs e)
-        {
-            //Dirige al formulario de marcas
-
-            Usuarios Usuarios = new Usuarios();
-
-            Usuarios.Show();
-
-            this.Hide();
-        }
-
-        private void btnFacturaGo_Click(object sender, EventArgs e)
-        {
-            string name = "";
-            GenerarFactura GenerarFactura = new GenerarFactura();
-
-            GenerarFactura.Show();
-
-            this.Hide();
-        }
-
-        private void btnHistGo_Click(object sender, EventArgs e)
-        {
-            string name = "";
-            HistorialFactura HistorialFactura = new HistorialFactura();
-
-            HistorialFactura.Show();
-
-            this.Hide();
-        }
     }
 }
