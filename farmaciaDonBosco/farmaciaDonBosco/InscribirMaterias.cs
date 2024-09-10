@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace farmaciaDonBosco.FormsGestion
 {
-    public partial class Productos : Form
+    public partial class InscribirMaterias : Form
     {
         Conexion conexion = new Conexion();
-        public Productos()
+        public InscribirMaterias()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;

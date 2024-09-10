@@ -65,7 +65,7 @@ namespace farmaciaDonBosco
         {
             //Dirige al formulario de marcas
 
-            Productos Marcas = new Productos();
+            InscribirMaterias Marcas = new InscribirMaterias();
 
             Marcas.Show();
 
