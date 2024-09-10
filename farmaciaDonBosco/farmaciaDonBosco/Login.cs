@@ -69,5 +69,9 @@ namespace farmaciaDonBosco
 
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
