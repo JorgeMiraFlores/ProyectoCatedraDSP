@@ -31,31 +31,37 @@ namespace farmaciaDonBosco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Declarando el texto de los textbox: usuario y password
+            // Declarando el texto de los textbox: usuario y password
             string user = textBox1.Text;
-            string pasword = textBox2.Text;
+            string password = textBox2.Text;
 
             Conexion conexion = new Conexion();
 
-            if (conexion.EvaluarLogin(user, pasword))
+            if (conexion.EvaluarLogin(user, password))
             {
-                string usuario = conexion.ObtenerUsuario(user);
-                MessageBox.Show("Login exitoso, bienvenid@ "+usuario);
+                // Obtener datos del usuario desde la base de datos
+                string nombreUsuario = conexion.ObtenerUsuario(user);
+                string rolUsuario = conexion.ObtenerRolUsuario(user);
 
-                
-                Dashboard dashboard = new Dashboard(usuario);
-               
+                // Guardar los datos del usuario en la clase Usuario
+                Usuario.Nombre = nombreUsuario;
+                Usuario.UsuarioID = user;
+                Usuario.Rol = rolUsuario;
+
+                MessageBox.Show($"Login exitoso, bienvenid@ {Usuario.Nombre}");
+
+                // Abrir el dashboard sin necesidad de pasar parámetros
+                Dashboard dashboard = new Dashboard();
                 dashboard.Show();
-
                 this.Hide();
-
             }
             else
             {
                 MessageBox.Show("Nombre de usuario o contraseña incorrectos");
             }
-
         }
+
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {

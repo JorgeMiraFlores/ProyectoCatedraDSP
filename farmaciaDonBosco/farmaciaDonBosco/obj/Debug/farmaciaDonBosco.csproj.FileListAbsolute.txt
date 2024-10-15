@@ -116,3 +116,6 @@ C:\Users\Jorge\Documents\GitHub\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonB
 C:\Users\Jorge\Documents\GitHub\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmacia.EBF72649.Up2Date
 C:\Users\Jorge\Documents\GitHub\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.exe
 C:\Users\Jorge\Documents\GitHub\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.pdb
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\itextsharp.dll
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\bin\Debug\itextsharp.xml
+C:\repositories\ProyectoCatedraDSP\farmaciaDonBosco\farmaciaDonBosco\obj\Debug\farmaciaDonBosco.Roles.resources

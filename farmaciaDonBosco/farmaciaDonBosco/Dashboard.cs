@@ -13,18 +13,31 @@ namespace farmaciaDonBosco
 {
     public partial class Dashboard : Form
     {
-        public Dashboard(string usuario)
+        public Dashboard()
         {
             
             InitializeComponent();
-
-            lblWelcome.Text = "Bienvenid@ "+ usuario;
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            //this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
-           //this.WindowState = FormWindowState.Maximized;
+
+            // Mostrar el nombre del usuario en la barra de título
+            lblWelcome.Text = $"Dashboard - Bienvenido {Usuario.Nombre}";
+
+            // Verificar el rol del usuario y habilitar controles
+            if (Usuario.Rol == "Administrador")
+            {
+                groupBox1.Visible = true;
+                groupBox2.Visible = true;
+                groupBox3.Visible = true;
+            }
+            else if (Usuario.Rol == "Cajero")
+            {
+                groupBox1.Visible = false;
+                groupBox2.Visible = true;
+                groupBox3.Visible = false;
+            }
         }
 
         private void btnMarcasGo_Click(object sender, EventArgs e)
@@ -74,7 +87,7 @@ namespace farmaciaDonBosco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name = "";
+            Usuario.CerrarSesion();
             Login login = new Login();
 
             login.Show();
@@ -102,7 +115,7 @@ namespace farmaciaDonBosco
 
         private void btnFacturaGo_Click(object sender, EventArgs e)
         {
-            string name = "";
+
             GenerarFactura GenerarFactura = new GenerarFactura();
 
             GenerarFactura.Show();
@@ -112,7 +125,15 @@ namespace farmaciaDonBosco
 
         private void btnHistGo_Click(object sender, EventArgs e)
         {
-            string name = "";
+            HistorialFactura HistorialFactura = new HistorialFactura();
+
+            HistorialFactura.Show();
+
+            this.Hide();
+        }
+
+        private void btnAgregarRoles_Click(object sender, EventArgs e)
+        {
             HistorialFactura HistorialFactura = new HistorialFactura();
 
             HistorialFactura.Show();

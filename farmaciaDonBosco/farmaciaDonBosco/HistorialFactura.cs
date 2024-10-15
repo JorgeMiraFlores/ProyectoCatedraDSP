@@ -60,5 +60,14 @@ namespace farmaciaDonBosco
                 MessageBox.Show("Error al cargar datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+
+            dashboard.Show();
+
+            this.Hide();
+        }
     }
 }

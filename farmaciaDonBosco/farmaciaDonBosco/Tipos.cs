@@ -32,8 +32,7 @@ namespace farmaciaDonBosco
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            string name = "";
-            Dashboard dashboard = new Dashboard(name);
+            Dashboard dashboard = new Dashboard();
 
             dashboard.Show();
 
@@ -73,7 +72,7 @@ namespace farmaciaDonBosco
 
                 }else if(btnAgregarTipo.Text == "Actualizar")
                 {                                        
-                    conexion.ActualizarCaracteristicas(idTipo, nombreTipo, "tipo");
+                    conexion.ActualizarCaracteristicas(idTipo, nombreTipo, "tipo", "idTipo");
                     CargarDatos();
                     ocultarId();
                     VaciarGrillas();
@@ -92,15 +91,15 @@ namespace farmaciaDonBosco
             if (dataGVTipo.SelectedRows.Count > 0)
             {
                 // Obtener el ID del producto seleccionado
-                int idMarca = Convert.ToInt32(dataGVTipo.SelectedRows[0].Cells["idTipo"].Value);
+                int idTipo = Convert.ToInt32(dataGVTipo.SelectedRows[0].Cells["idTipo"].Value);
 
                 // Confirmar la eliminación
-                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este tipo?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
 
-                    bool exito = conexion.EliminarObjeto(idMarca, "tipo", "idTipo");
+                    bool exito = conexion.EliminarObjeto(idTipo, "tipo", "idTipo");
 
                     if (exito)
                     {

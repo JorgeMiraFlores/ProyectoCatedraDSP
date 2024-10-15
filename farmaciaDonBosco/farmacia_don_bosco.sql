@@ -175,7 +175,7 @@ VALUES ('Administrador'),('Cajero');
 
 
 INSERT INTO `farmacia_don_bosco`.`usuarios` (`usuario`, `idRol`, `nombre`, `password`)
-VALUES ('Jorge', 1, 'george', '123');
+VALUES ('user', 1, 'user', '123');
 
 
 use farmacia_don_bosco;

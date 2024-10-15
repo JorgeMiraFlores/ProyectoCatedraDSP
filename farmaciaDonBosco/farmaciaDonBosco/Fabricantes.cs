@@ -26,8 +26,7 @@ namespace farmaciaDonBosco.FormsGestion
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            string name = "";
-            Dashboard dashboard = new Dashboard(name);
+            Dashboard dashboard = new Dashboard();
 
             dashboard.Show();
 

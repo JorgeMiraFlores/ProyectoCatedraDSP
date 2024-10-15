@@ -32,6 +32,7 @@
             this.dGVFactura = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVFactura)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             this.dGVDetalle.MultiSelect = false;
             this.dGVDetalle.Name = "dGVDetalle";
             this.dGVDetalle.ReadOnly = true;
-            this.dGVDetalle.Size = new System.Drawing.Size(1159, 222);
+            this.dGVDetalle.Size = new System.Drawing.Size(1159, 163);
             this.dGVDetalle.TabIndex = 19;
             // 
             // dGVFactura
@@ -89,17 +90,29 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Detalle Facturas:";
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Location = new System.Drawing.Point(551, 569);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(138, 23);
+            this.btnRegresar.TabIndex = 22;
+            this.btnRegresar.Text = "&Regresar al Dashboard";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // HistorialFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(217)))), ((int)(((byte)(212)))));
             this.ClientSize = new System.Drawing.Size(1199, 617);
+            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dGVFactura);
             this.Controls.Add(this.dGVDetalle);
             this.Name = "HistorialFactura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HistorialFactura";
             this.Load += new System.EventHandler(this.HistorialFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVDetalle)).EndInit();
@@ -115,5 +128,6 @@
         private System.Windows.Forms.DataGridView dGVFactura;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }

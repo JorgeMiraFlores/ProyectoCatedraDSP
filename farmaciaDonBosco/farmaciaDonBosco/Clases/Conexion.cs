@@ -88,6 +88,29 @@ namespace farmaciaDonBosco
             return user;
         }
 
+        public string ObtenerRolUsuario(string usuario)
+        {
+            try
+            {
+                establecerConexion();
+                string query = @"
+                    SELECT r.nombre 
+                    FROM usuarios u 
+                    INNER JOIN roles r ON u.idRol = r.idRoles 
+                    WHERE u.usuario = @usuario";
+
+                MySqlCommand cmd = new MySqlCommand(query, cnx);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+
+                object result = cmd.ExecuteScalar();
+                return result != null ? result.ToString() : "Rol no encontrado";
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
+
         public DataTable ObtenerDatos(string tabla)
         {
             DataTable dt = new DataTable();
@@ -282,13 +305,13 @@ namespace farmaciaDonBosco
                     int filasAfectadas = comando.ExecuteNonQuery();
                     if (filasAfectadas > 0)
                     {
-                        MessageBox.Show("Tipo de producto agregado correctamente.");
+                        MessageBox.Show($"{nombreTipo} agregado correctamente.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al ingresar el nuevo tipo del producto: " + ex.Message);
+                MessageBox.Show($"Error al ingresar {nombreTipo}: " + ex.Message);
             }
             finally
             {
@@ -298,21 +321,23 @@ namespace farmaciaDonBosco
                 }
             }
         }
-        public void ActualizarCaracteristicas(int id, string nuevoNombre, string tabla)
+        public void ActualizarCaracteristicas(int id, string nuevoNombre, string tabla, string columna)
         {
             try
             {
-                establecerConexion();
+                establecerConexion();  // Asegúrate de que esta conexión esté bien configurada
 
-                string query = $"UPDATE {tabla} SET nombre = @nuevoNombre " +
-                               "WHERE idTipo = @id";
+                // La columna y tabla no pueden ser parámetros, deben ser integradas directamente en la consulta
+                string query = $"UPDATE {tabla} SET nombre = @nuevoNombre WHERE {columna} = @id";
+
                 using (MySqlCommand comando = new MySqlCommand(query, cnx))
                 {
                     comando.Parameters.AddWithValue("@nuevoNombre", nuevoNombre);
                     comando.Parameters.AddWithValue("@id", id);
 
-                    // Usa ExecuteNonQuery para operaciones de actualización
+                    // Ejecuta la consulta
                     int filasAfectadas = comando.ExecuteNonQuery();
+
                     if (filasAfectadas > 0)
                     {
                         MessageBox.Show("Características actualizadas correctamente.");
@@ -335,6 +360,7 @@ namespace farmaciaDonBosco
                 }
             }
         }
+
 
         public void ActualizarProductos(int idProductos, string nombre, int marca, int fabricante, int tipo, decimal precio, string fechaCaducidad, decimal stock)
         {

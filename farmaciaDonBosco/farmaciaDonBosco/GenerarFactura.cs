@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 
 namespace farmaciaDonBosco
@@ -21,8 +26,7 @@ namespace farmaciaDonBosco
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            string name = "";
-            Dashboard dashboard = new Dashboard(name);
+            Dashboard dashboard = new Dashboard();
 
             dashboard.Show();
 
@@ -173,22 +177,22 @@ namespace farmaciaDonBosco
             }
 
             string fechaFactura = dateFactura.Value.ToString("yyyy-MM-dd");
-            string nombreCliente = txtBoxNombre.Text.ToString();
-            int tipoPago = radioBtnEfectivo.Checked ? 1 : 2;
+            string nombreCliente = txtBoxNombre.Text;
+            string tipoPago = radioBtnEfectivo.Checked ? "Efectivo" : "Tarjeta";
             int descuento = Convert.ToInt32(numDescuento.Value);
             decimal subtotal = numMonto.Value;
             decimal total = numTotal.Value;
 
             try
             {
-                // Insertar la factura y obtener el ID
-                int idFactura = conexion.InsertarFactura(DateTime.Now, nombreCliente, tipoPago, descuento, subtotal, total);
+                // Insertar la factura en la base de datos
+                int idFactura = conexion.InsertarFactura(DateTime.Now, nombreCliente, tipoPago == "Efectivo" ? 1 : 2, descuento, subtotal, total);
 
                 if (idFactura > 0)
                 {
-                    // Insertar los detalles de la factura
                     conexion.InsertarDetallesFactura(idFactura, dGVProductos);
-                    MessageBox.Show("Compra realizada con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GenerarPDF(nombreCliente, fechaFactura, tipoPago, subtotal, descuento, total);
+                    MessageBox.Show("Compra realizada con éxito y PDF generado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     VaciarGrillas();
                 }
                 else
@@ -252,5 +256,64 @@ namespace farmaciaDonBosco
         {
 
         }
+
+        private void GenerarPDF(string nombreCliente, string fecha, string tipoPago, decimal subtotal, int descuento, decimal total)
+        {
+            Document documento = new Document(PageSize.A4);
+            string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Factura.pdf");
+
+            try
+            {
+                PdfWriter.GetInstance(documento, new FileStream(ruta, FileMode.Create));
+                documento.Open();
+
+                // Título
+                Paragraph titulo = new Paragraph("Factura de Compra\n\n", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20));
+                titulo.Alignment = Element.ALIGN_CENTER;
+                documento.Add(titulo);
+
+                // Información del cliente y fecha
+                documento.Add(new Paragraph($"FARMACIA DON BOSCO\n\n"));
+                documento.Add(new Paragraph($"*********************")); // Add the ID to the doument.
+                documento.Add(new Paragraph($"Cliente: {nombreCliente}"));
+                documento.Add(new Paragraph($"Fecha: {fecha}"));
+                documento.Add(new Paragraph($"Método de pago: {tipoPago}\n\n"));
+
+                // Tabla con los productos
+                PdfPTable tabla = new PdfPTable(5);
+                tabla.WidthPercentage = 100;
+                tabla.AddCell("ID");
+                tabla.AddCell("Producto");
+                tabla.AddCell("Cantidad");
+                tabla.AddCell("Precio Unitario");
+                tabla.AddCell("Subtotal");
+
+                foreach (DataGridViewRow row in dGVProductos.Rows)
+                {
+                    if (row.Cells["idProducto"].Value != null)
+                    {
+                        tabla.AddCell(row.Cells["idProducto"].Value.ToString());
+                        tabla.AddCell(row.Cells["Producto"].Value.ToString());
+                        tabla.AddCell(row.Cells["Cantidad"].Value.ToString());
+                        tabla.AddCell(row.Cells["PrecioUnitario"].Value.ToString());
+                        tabla.AddCell(row.Cells["Subtotal"].Value.ToString());
+                    }
+                }
+
+                documento.Add(tabla);
+
+                // Totales y descuento
+                documento.Add(new Paragraph($"\nSubtotal: ${subtotal}"));
+                documento.Add(new Paragraph($"Descuento: {descuento}%"));
+                documento.Add(new Paragraph($"Total: ${total}\n"));
+
+                documento.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
